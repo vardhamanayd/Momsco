@@ -1,0 +1,92 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('custom_notice') ?>
+        <?php echo $this->getChildHtml('header') ?>
+        <?php echo $this->getChildHtml('topContainer') ?>
+        <div class="main-container col1-layout">
+            <div class="main container">
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+                <div class="container">
+                <div class="category-concern">
+                    <p style="text-align: -webkit-center;"><img alt="Trial Bag" title="Trial Bag" src="<?php echo $this->getSkinUrl('images/img/for-trail.png'); ?>" /></p>
+                
+
+                 <p style="text-align: justify; font-size: 22px;">Congratulations! We take the liberty to assume that if you are here you are either an expecting parent, family member or a close friend. Either way, we are glad you here. </p>
+
+                <p style="text-align: justify; font-size: 22px;">At The Moms Co. we have obsessively created our products from choosing the best ingredients to having that perfect smell to please the expecting mom. We use only the best natural ingredients and have zero tolerance for any potentially harmful chemicals.</p>
+
+                <p style="text-align: justify; font-size: 22px;">But saying isn’t enough, we strongly encourage everyone to try our products. Whether you are travelling, preparing your hospital bag or just want to try a few of our natural toxin-free products we have the perfect offering. </p>
+
+                <p style="text-align: justify; font-size: 22px;"> We hope you love our products, and are happy to offer you the trial kit for free (you just pay shipping of Rs. 99). You also get Rs. 100 off on your next purchase of any full size pack at The Moms Co. within 30 days.</p>
+
+                <p style="text-align: justify; font-size: 22px;">We’d love to hear any feedback you have on our products. Please do write to us at care@themomsco.com </p>
+                <p style="text-align: justify; font-size: 22px; margin-top: 30px;">The Try Before You Buy contains travel size packs for</p>
+                <p style="text-align: justify; font-size: 22px;">1) <span style="color: #407ec9;">Natural Body Butter</span> - A rich toxin-free combination of cocoa and shea butter with moisturizing oils that increase your skin&rsquo;s natural elasticity</p>
+                <p style="text-align: justify; font-size: 22px;">2) <span style="color: #407ec9;">Natural Body Wash</span>- A toxin-free combination of coconut based mild cleansers and natural moisturizers that help your skin restore its natural balance and essential oils that help with the morning sickness and give your spirits a lift.</p>
+                <p style="text-align: justify; font-size: 22px; margin-bottom: 5%;">3) <span style="color: #407ec9;">100 Mommy Points</span> that you can claim for Rs. 100 on your next purchase with The Moms Co.</p>
+
+
+                <?php 
+                    $productId = '48';   // Your Product Id
+                $_product = Mage::getModel('catalog/product')->load($productId);?>
+
+                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_product); ?>')"><p class="trail-bag">Claim Your Free The Moms Co. Trial Bag</p></span></button>
+
+                <p style="text-align: -webkit-center; font-size: 20px; margin-bottom: 1%;  margin-top: 2%;"><span>(Pay just Rs. 99 for shipping now, get Rs. 100 off your next order)</p>
+            
+                </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

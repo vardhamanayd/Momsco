@@ -1,0 +1,142 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+<style>
+@media (min-width:320px) and (max-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+	.certificates{
+		width:45%;
+		float:left;
+		margin-right:20px;	
+	}
+	.certificate2{
+		width:45%;
+		float:left;
+	}
+}
+</style>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('custom_notice') ?>
+        <?php echo $this->getChildHtml('header') ?>
+        <?php echo $this->getChildHtml('topContainer') ?>
+        <div class="main-container col1-layout" style="padding:0px;">
+            <div class="main container">
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+                     <div id="latest_news" class="owl-top-narrow1" style="margin-bottom: 10px;">
+                        <div class="recent-posts">
+                            <div class="owl-carousel owl-theme">
+                                <div class="item1">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="post-image1 lifesell2" style="text-align: -webkit-center;">
+                                            <img style="width: auto;" src="<?php echo $this->getSkinUrl('images/img/cryoviva.png'); ?>" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    </div>
+                    </div>
+
+                     <p style="text-align: -webkit-center; font-size: 24px; margin-bottom: 1%;  margin-top: 2%; color: #aea299;"><span>Congratulations! Welcome to The Moms Co.</p>
+                <div class="container">
+                <div class="category-concern">
+                    <p style="text-align: -webkit-center;"><img alt="Trial Bag" title="Trial Bag" src="<?php echo $this->getSkinUrl('images/img/for-trail.png'); ?>" /></p>
+                
+
+                 <p style="text-align: justify; font-size: 15px;">Born out of a mom's need to give only the best to her babies, we, at The Moms Co., live by our Nature In. Toxins Out. mantra, using only the best natural ingredients and with zero tolerance for any potentially harmful chemicals.</p>
+
+                 <p style="text-align: justify; font-size: 15px;"> All our products are Australian-certified Toxic-Free, Made Safe, and Dermatologically Tested.</p>
+
+                <p style="text-align: justify; font-size: 15px;">Our special trial bag for CryoViva customers contains</p>
+
+                <p style="text-align: justify; font-size: 15px;">1) <span style="color: #407ec9;">Natural Body Butter</span> - A rich toxin-free combination of cocoa and shea butter with moisturizing oils that increase your skin’s natural elasticity and help itchy, stretching skin.</p>
+                <p style="text-align: justify; font-size: 15px; margin-bottom: 5%;">2) <span style="color: #407ec9;"> Natural Stretch Oil</span> - A rich combination of 7 powerful oils and Natural Vitamin E that increase your skin's natural elasticity, providing comfort to your stretching belly, hips and breasts.</p>
+
+
+                 <div class="custom-support1 homepage-bar naturein " style="background-color: #fff; border: none;">
+                <div class="container" style="width: 66%;"><div class="row">
+                <div class="col-sm-12">
+                <div class="content">
+                <div class="whymom">
+                
+                </div>
+                
+                <div class="col-md-12"><div class="text-area"></div>
+                                <i class="icon-lifebuoy1" style="font-size:60px;"></i>
+                                <img style="padding-right: 30px;" src="<?php echo $this->getSkinUrl('images/img/stamp.png'); ?>" alt="" />
+                                <span class="certificates">
+                                	<img style="padding-right: 30px;" src="<?php echo $this->getSkinUrl('images/img/L1.png'); ?>" alt="" />
+                                </span>
+                                <span class="certificate2">
+                                	<img style="padding-right: 30px;" src="<?php echo $this->getSkinUrl('images/img/L2.png'); ?>" alt="" />
+                                </span>
+                            </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <?php 
+                    $productId = '50';   // Your Product Id
+                $_product = Mage::getModel('catalog/product')->load($productId);?>
+				<p style="text-align: -webkit-center; font-size: 24px; margin-bottom: 1%;  margin-top: 2%;"><span style="font-size:10px;">Please use your coupon code to avail free shipping.</p>
+                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_product); ?>')"><p class="trail-bag">Click here for your free trial bag</p></span></button>
+
+
+                
+            
+                </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

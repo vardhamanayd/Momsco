@@ -1,0 +1,80 @@
+<?php echo $this->getChildHtml('sticky.nav') ?>
+<?php
+    $store = Mage::app()->getStore();
+    $code  = $store->getCode();
+    $custom_block = Mage::getStoreConfig('porto_settings/header/static_block', $code);
+?>
+<div class="header-container type13">
+    <div class="top-links-container">
+        <div class="top-links container">
+            <div class="search-area" style="display:none;">
+                <a href="javascript:void(0)" class="search-icon"><i class="icon-search"></i>&nbsp;<span><?php echo $this->__("Search"); ?></span></a>
+                <?php echo $this->getChildHtml('topSearch'); ?>
+            </div>
+            <?php
+                $store_currency = $this->getChildHtml('store_currency');
+                $store_language = $this->getChildHtml('store_language');
+                $compare_link = $this->getChildHtml('compare_link');
+            ?>
+            <?php if($store_currency || $store_language || $compare_link):?>
+            <?php /*<span class="split"></span>*/?>
+            <?php endif; ?>
+            <?php echo $store_currency; ?>
+            <?php if($store_currency && $store_language):?>
+            <span class="split"></span>
+            <?php endif; ?>
+            <?php echo $store_language; ?>
+            <?php if(($store_currency || $store_language) && $compare_link):?>
+            <span class="split"></span>
+            <?php endif; ?>
+            <?php echo $compare_link; ?>
+            <div class="cart-area">
+                <?php echo $this->getChildHtml('minicart'); ?>
+            </div>
+            <span class="split f-right hidden"></span>
+            <div class="top-links-area">
+                <div class="top-links-icon">
+                
+                  <button2 class="welcome-msg" style="display: block;"><div class="dropdown top-links-icon"> <?php echo $this->getChildHtml('welcome') ?><?php echo $this->getAdditionalHtml() ?>
+                  
+                  <div class="dropdown-content">
+                    <a href="<?php echo $this->getUrl("customer/account/"); ?>">My Account</a>
+                    <a href="<?php echo $this->getUrl("checkout/cart/"); ?>">My Cart</a>
+                    <a href="<?php echo $this->getUrl("sales/order/history/"); ?>">My Orders</a>
+                    <a href="<?php echo $this->getUrl("customer/address/"); ?>">Addresses</a>
+                    <a href="<?php echo $this->getUrl("customer/account/"); ?>">Order Tracking</a>
+                    <a href="<?php echo $this->getUrl("customer/account/logout/"); ?>">Logout</a>
+                  </div>
+                </div>
+                </button2></div>
+                <?php echo $this->getChildHtml('topLinks'); ?>
+            </div>
+            <span class="split f-right hidden"></span>
+            <p class="welcome-msg hidden"><a href="<?php echo $this->getUrl('mommy-points') ?>">GET RS. 100 OFF YOUR NEXT PURCHASE</a></p>
+            <?php /*<p class="welcome-msg2">FREE shipping over Rs. 500</p>*/?>
+            <!--<p class="welcome-msg1"> <span class="split" style="float: right; margin: 3px 5px 0px 10px; display: none;"></span>SHIPPING WORLDWIDE</p>-->
+            <div class="menu-icon f-right"><span class="split f-right"></span><a href="javascript:void(0)" title="<?php echo $this->__('Menu'); ?>"><i class="fa fa-bars"></i></a></div>
+            <div class="clearer"></div>
+        </div>
+    </div>
+    <div class="header container">
+        <?php echo '<div class="custom-block">'.$this->getLayout()->createBlock('cms/block')->setBlockId($custom_block)->toHtml().'</div>'; ?>
+            <?php /*<div class="custom-block1">
+            <span>Get 20 points for every referral you make</span>
+            </div>*/?>
+        <div itemscope="" itemtype="http://schema.org/Organization">
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><a href="<?php echo $this->getUrl(''); ?>" itemprop="url" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><img src="<?php echo $this->getLogoSrc(); ?>" itemprop="logo" alt="<?php echo $this->getLogoAlt(); ?>" class="website" /> <img src="<?php echo $this->getSkinUrl('images/img/full-logo.png'); ?>" class="mobile"></a>
+           
+        </h1>
+        <?php else:?>
+        <h1 class="logo"><a href="<?php echo $this->getUrl(''); ?>" itemprop="url" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><img src="<?php echo $this->getLogoSrc(); ?>" itemprop="logo" alt="<?php echo $this->getLogoAlt(); ?>" class="website" /><img src="<?php echo $this->getSkinUrl('images/img/full-logo.png'); ?>" class="mobile"></a></h1>
+        <?php endif; ?>
+        
+    
+        <?php echo $this->getChildHtml('topMenu') ?>
+        <?php echo $this->getChildHtml("demo_header_tooltip"); ?>
+        </div>
+    </div>
+</div>
+<?php echo $this->getChildHtml('mobile.nav') ?>

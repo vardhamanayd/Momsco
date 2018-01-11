@@ -1,0 +1,72 @@
+<?php echo $this->getChildHtml('sticky.nav') ?>
+<?php
+    $store = Mage::app()->getStore();
+    $code  = $store->getCode();
+    $custom_block = Mage::getStoreConfig('porto_settings/header/static_block', $code);
+?>
+<div class="header-container type9">
+    <div class="top-links-container">
+        <div class="top-links container">
+            <?php
+                $store_currency = $this->getChildHtml('store_currency');
+                $store_language = $this->getChildHtml('store_language');
+				$compare_link = $this->getChildHtml('compare_link');
+            ?>
+            <?php echo $store_currency; ?>
+            <?php if($store_currency && $store_language):?>
+            <span class="split"></span>
+            <?php endif; ?>
+            <?php echo $store_language; ?>
+            <?php if(($store_currency || $store_language) && $compare_link):?>
+            <span class="split"></span>
+            <?php endif; ?>
+			<?php echo $compare_link; ?>
+            <div class="top-links-area">
+                <div class="top-links-icon">
+				
+				  <button2 class="welcome-msg"><div class="dropdown top-links-icon"> <?php echo $this->getChildHtml('welcome') ?><?php echo $this->getAdditionalHtml() ?>
+				  
+				  <div class="dropdown-content">
+					<a href="<?php echo $this->getUrl("customer/account/"); ?>">My Account</a>
+					<a href="<?php echo $this->getUrl("checkout/cart/"); ?>">My Cart</a>
+					<a href="<?php echo $this->getUrl("sales/order/history/"); ?>">My Orders</a>
+					<a href="<?php echo $this->getUrl("customer/address/"); ?>">Addresses</a>
+					<a href="<?php echo $this->getUrl("customer/account/"); ?>">Order Tracking</a>
+					<a href="<?php echo $this->getUrl("customer/account/logout/"); ?>">Logout</a>
+				  </div>
+				</div>
+				</button2></div>
+                <?php echo $this->getChildHtml('topLinks'); ?>
+            </div>
+            <div class="cart-area">
+                <?php echo $this->getChildHtml('minicart'); ?>
+            </div>
+			<p class="welcome-msg" style="padding-right: 35px;"><a href="<?php echo $this->getUrl('mommy-points') ?>">Refer Friends, Get Mommy Points</a></p>
+            <p class="welcome-msg2">FREE shipping over Rs. 500</p>
+			<p class="welcome-msg1">SHIPPING WORLDWIDE</p>
+
+            <div class="clearer"></div>
+        </div>
+    </div>
+    <div class="header container">
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><a href="<?php echo $this->getUrl(''); ?>" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><img src="<?php echo $this->getLogoSrc(); ?>" alt="<?php echo $this->getLogoAlt(); ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl(''); ?>" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><img src="<?php echo $this->getLogoSrc(); ?>" alt="<?php echo $this->getLogoAlt(); ?>" /></a>
+        <?php endif; ?>
+        <div class="search-area">
+            <a href="javascript:void(0)" class="search-icon"><i class="icon-search"></i></a>
+            
+            <div class="menu-icon"><a href="javascript:void(0)" title="<?php echo $this->__('Menu'); ?>"><i class="fa fa-bars"></i></a></div>
+        </div>
+        <?php echo '<div class="custom-block">'.$this->getLayout()->createBlock('cms/block')->setBlockId($custom_block)->toHtml().'</div>'; ?>
+       <?php /* <div class="cart-area">
+            <?php echo $this->getChildHtml('minicart'); ?>
+        </div>*/?>
+
+        <?php echo $this->getChildHtml("demo_header_tooltip"); ?>
+
+    </div>
+    <?php echo $this->getChildHtml('topMenu') ?>
+</div>
+<?php echo $this->getChildHtml('mobile.nav') ?>

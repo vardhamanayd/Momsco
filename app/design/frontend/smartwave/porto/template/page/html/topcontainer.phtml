@@ -1,0 +1,15 @@
+<?php
+
+$breadcrumbs = $this->getChildHtml("breadcrumbs");
+if ($breadcrumbs) :
+
+?>
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+        <?php echo $breadcrumbs; ?>
+        </div>
+    </div>
+</div>
+<?php echo $this->getChildHtml("page.header"); ?>
+<?php endif; ?>

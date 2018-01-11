@@ -1,0 +1,57 @@
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart" >
+        <?php if(!$_product->isGrouped()): ?>
+        <label for="qty"><?php echo $this->__('Qty:') ?></label>
+        <div class="qty-holder">
+            <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+            <div class="qty-changer">
+                <a href="javascript:void(0)" class="qty_inc"><i class="icon-up-dir"></i></a>
+                <a href="javascript:void(0)" class="qty_dec"><i class="icon-down-dir"></i></a>
+            </div>
+        </div>
+        <?php endif; ?>
+        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart"  onclick="productAddToCartForm.submit(this)"><span><span><i class="icon-cart"></i><?php echo $buttonTitle ?></span></span></button>
+        <?php echo $this->getChildHtml('', true, true) ?>
+    </div>
+
+<?php endif; ?>
+<script type="text/javascript">
+//     window.addEventListener("scroll", cartfun);
+//     var cumulativeOffset = function(element) {
+//         var top = 0, left = 0;
+//         do {
+//             top += element.offsetTop  || 0;
+//             left += element.offsetLeft || 0;
+//             element = element.offsetParent;
+//         } while(element);
+
+//         return {
+//             top: top,
+//             left: left
+//         };
+//     };
+//     function cartfun(){
+//         var elmnt=document.getElementsByClassName("btn-cart");
+//         var winwid=screen.width;
+//         if(winwid<=500){
+
+//         for (var i = 0; i < elmnt.length; i++) {
+//             // elmnt[i].style.position = "fixed";
+//                 console.log("cumulative" +cumulativeOffset(elmnt[i]).top);
+//                 console.log("windowinner" + (window.innerHeight + 72));
+//                 console.log("windowoffset" + window.pageYOffset);
+//             // if((cumulativeOffset(elmnt[i]).top - window.innerHeight + 72) < window.pageYOffset){
+//             if(window.pageYOffset>=60){
+//                 elmnt[i].setAttribute('style', 'position:fixed;bottom:40px;width:45%!important;');
+//                 // console.log('ui am working');
+//             }else{
+//                 elmnt[i].setAttribute('style','position:static;');
+//             }
+//         }
+//         // console.log('djkdfjk');
+//     }
+//     // }
+// }
+</script>
