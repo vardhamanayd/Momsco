@@ -58,22 +58,26 @@
         </div>
     </div>
     <div class="header container">
-        <?php echo '<div class="custom-block">'.$this->getLayout()->createBlock('cms/block')->setBlockId($custom_block)->toHtml().'</div>'; ?>
-            <?php /*<div class="custom-block1">
-            <span>Get 20 points for every referral you make</span>
-            </div>*/?>
-        <div itemscope="" itemtype="http://schema.org/Organization">
-        <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><a href="<?php echo $this->getUrl(''); ?>" itemprop="url" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><img src="<?php echo $this->getLogoSrc(); ?>" itemprop="logo" alt="<?php echo $this->getLogoAlt(); ?>" class="website" /> <img src="<?php echo $this->getSkinUrl('images/img/full-logo.png'); ?>" class="mobile"></a>
-           
-        </h1>
-        <?php else:?>
-        <h1 class="logo"><a href="<?php echo $this->getUrl(''); ?>" itemprop="url" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><img src="<?php echo $this->getLogoSrc(); ?>" itemprop="logo" alt="<?php echo $this->getLogoAlt(); ?>" class="website" /><img src="<?php echo $this->getSkinUrl('images/img/full-logo.png'); ?>" class="mobile"></a></h1>
-        <?php endif; ?>
-        
-    
-        <?php echo $this->getChildHtml('topMenu') ?>
-        <?php echo $this->getChildHtml("demo_header_tooltip"); ?>
+        <div class="col-xs-12">
+            <div class="row">
+                <?php echo '<div class="custom-block">'.$this->getLayout()->createBlock('cms/block')->setBlockId($custom_block)->toHtml().'</div>'; ?>
+                    <?php /*<div class="custom-block1">
+                    <span>Get 20 points for every referral you make</span>
+                    </div>*/?>
+                <div itemscope="" itemtype="http://schema.org/Organization">
+                <?php if ($this->getIsHomePage()):?>
+                <h1 class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><a href="<?php echo $this->getUrl(''); ?>" itemprop="url" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><img src="<?php echo $this->getLogoSrc(); ?>" itemprop="logo" alt="<?php echo $this->getLogoAlt(); ?>" class="website" /> <img src="<?php echo $this->getSkinUrl('images/img/full-logo.png'); ?>" class="mobile"></a>
+
+                </h1>
+                <?php else:?>
+                <h1 class="logo"><a href="<?php echo $this->getUrl(''); ?>" itemprop="url" title="<?php echo $this->getLogoAlt(); ?>" class="logo"><strong><?php echo $this->getLogoAlt(); ?></strong><img src="<?php echo $this->getLogoSrc(); ?>" itemprop="logo" alt="<?php echo $this->getLogoAlt(); ?>" class="website" /><img src="<?php echo $this->getSkinUrl('images/img/full-logo.png'); ?>" class="mobile"></a></h1>
+                <?php endif; ?>
+
+
+                <?php echo $this->getChildHtml('topMenu') ?>
+                <?php echo $this->getChildHtml("demo_header_tooltip"); ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>
