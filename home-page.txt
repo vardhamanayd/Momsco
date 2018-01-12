@@ -1,0 +1,224 @@
+
+<div id="home_section_1" class="col-xs-12 homepage_type13">	
+	<div class="row home_section_top">			
+		<div class="circle_trees">
+			<div class="circle"></div>
+			<div class="trees">
+				<img src="{{media url="wysiwyg/porto/tree.jpg"}}" alt="Tree" />
+			</div>
+		</div>
+		<div class="container">
+			<div class="home_section_1_content">
+				<img src="{{media url="wysiwyg/porto/blog/toxins-out-nature-in-logo.png"}}" alt="Nature In - Toxins Out" />
+				<h2 class="text-uppercase">Natural In.<br/> Toxins Out.</h2>
+				<p>At The Moms Co., we use only the most effective natural ingredients for our products. We have zero tolerance for any potentially harmful chemicals and go to great lengths to create products that are safe.</p>					
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="container">
+			<div class="col-xs-12 stamp_logos">
+				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-1.png"}}" alt="Made Safe" />
+				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-2.png"}}" alt="Australian Allergy Certified" />
+				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-3.png"}}" alt="Toxic-Free Australian Certified" />
+				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-4.png"}}" alt="Dermatologically Tested OK" />
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div id="home_section_2" class="col-xs-12 homepage_type13">
+	<div class="container">
+		<div class="col-xs-12">
+			<h2 class="text-uppercase">Born out of a Moms need</h2>
+		</div>
+		<div class="col-xs-12">
+			<img src="{{media url="wysiwyg/porto/video_player.jpg"}}" alt="Player" />
+		</div>
+	</div>
+</div>
+
+<div id="home_section_3" class="col-xs-12 homepage_type13">
+	<div class="container">
+		<div class=""></div>
+	</div>
+</div>
+
+
+
+<div class="custom-support1" style="padding-top: 0px;">
+<div class="container" style="width: 66%;">
+<div class="row">
+<div class="col-sm-12">
+<div class="content">
+<div class="whymom">
+<p style="font-size:15px; line-height: 30px; color: #aea299;">Born out of a mom's need to give only the best to her babies, we, at The Moms Co., are on a mission to help moms make safe, natural, effective choices for themselves and their families.</p>
+<p style="font-size:15px; line-height: 30px; color: #aea299;">Our All-Natural, Australian-Certified Toxin-Free range for moms-to-be is our first step, with a baby range launching soon.</p>
+</div>
+<p style="margin: 15px 0px 25px 0px; line-height: 30px; font-size: 15px; color: #aea299;">Our products, developed and tested with the best experts across India, Australia and Switzerland, are made with love and without compromise. With Mother Nature making her presence felt very strongly, everything we create retains the good and rejects the bad to give you a product that is as pure as a Mother’s Love.</p>
+<p><a href="{{store url}}no-compromise-safety-process">No Compromise Safety Process ></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="custom-support1 homepage-bar naturein ">
+<img style="float: left; padding-left: 85px; margin-top: -38px;" src="{{media url="wysiwyg/porto/blog/stamp.png"}}" alt="" />
+<div class="container" style="width: 66%;"><div class="row">
+<div class="col-sm-12">
+<div class="content">
+<div class="whymom">
+<h1>NATURE IN. TOXINS OUT. </h1>
+</div>
+<p style="margin: 15px 0px 25px 0px; line-height: 30px; font-size: 15px; color:#aea299">At The Moms Co., we use only the most effective natural ingredients for our products. We have zero tolerance for any potentially harmful chemicals and go to great lengths to create products that are safe. All our products are clinically tested and Australian Certified Toxin-Free.</p>
+
+<div class="col-md-12"><div class="text-area"></div>
+                <i class="icon-lifebuoy1" style="font-size:60px;"></i><img style="padding-right: 30px;" src="{{media url="wysiwyg/porto/blog/L1.png"}}" alt="" /><img style="padding-right: 30px;" src="{{media url="wysiwyg/porto/blog/L2.png"}}" alt="" />
+            </div>
+</div>
+</div>
+</div>
+<p><a href="{{store url}}trial-kit">Try Us Now ></a></p>
+</div>
+</div>
+
+<div class="newpruductimg">
+    <div class="container"  style="padding-top: 60px;">
+        <div class="row">
+            <img src="https://themomsco.com/skin/frontend/smartwave/porto/images/left-white.png" class="next">
+            <img src="https://themomsco.com/skin/frontend/smartwave/porto/images/right-white.png" class="privious"> 
+            <div class="col-sm-12 overhide">
+                <h2 class="filter-title21"><span class="content"><strong>OUR PRODUCTS</strong></span></h2>
+                <div id="new_product" class="owl-top-narrow hide-addtolinks">
+                    {{block type="filterproducts/newproduct_home_list" name="new_list" product_count="12" template="filterproducts/list.phtml"}}
+                </div>
+                <script type="text/javascript">
+                    jQuery(function($){
+var screenwidth = $( window ).width();		
+var i = 1;				
+var products = $("#products").val();		
+if(screenwidth < 768){
+products = products-1;				
+var itemwidth = screenwidth*.8;	
+var margin = screenwidth*.1;
+var pixelofonediv = itemwidth+margin;																							
+$(".item").css({"width": itemwidth+"px","margin-left": margin+"px"});	
+$(".next").click(function(e) {	
+var nextpixeltomove = i * -pixelofonediv;		
+var maxpixeltomove = products * -pixelofonediv;				
+if(nextpixeltomove < maxpixeltomove)				
+return;		
+$("#new_product").css({'left':nextpixeltomove+"px"});				
+i++;																					 			
+});											
+$(".privious").click(function(e) {					
+var priviouspixeltomove = (i * -pixelofonediv) +pixelofonediv;				
+if(priviouspixeltomove > 0)				
+return;					
+$("#new_product").css({'left':priviouspixeltomove+"px"});
+i--;																					 			
+});	
+		
+}
+else{		
+products = products - 4;		
+$(".next").click(function(e) {				
+var currentpixel =  $("#new_product").css("left").replace(/[^-\d\.]/g, '');			
+var nextpixeltomove = currentpixel - 290;		var maxpixeltomove = products * -290;				
+if(nextpixeltomove < maxpixeltomove)				
+return;				
+$("#new_product").css({'left':nextpixeltomove+"px"});				
+i++;																					 			
+});											
+$(".privious").click(function(e) {					
+var currentpixel =  parseInt($("#new_product").css("left").replace(/[^-\d\.]/g, ''));			
+var priviouspixeltomove = 290 + currentpixel;				
+if(priviouspixeltomove > 0)				
+return;					
+$("#new_product").css({'left':priviouspixeltomove+"px"});
+i--;																					 			
+});	
+}
+                        $("#new_product .filter-products .owl-carousel").owlCarousel({lazyLoad: true,    itemsCustom: [ [0, 1], [320, 1], [480, 2], [768, 3], [992, 4], [1280, 6] ],    responsiveRefreshRate: 50,    slideSpeed: 200,    paginationSpeed: 500,    scrollPerPage: false,    stopOnHover: true,    rewindNav: true,    rewindSpeed: 600,    pagination: false,    navigation: true,    autoPlay: true,    navigationText:["<i class='icon-left-open'></i>","<i class='icon-right-open'></i>"]});
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="what-moms-are ">
+<div class="custom-support4">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="content">
+<div class="whymom">
+<h1>SEE WHAT MOMS SAY</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+            <img src="https://themomsco.com/skin/frontend/smartwave/porto/images/left-grey.png" class="next2">
+            <img src="https://themomsco.com/skin/frontend/smartwave/porto/images/right-grey.png" class="privious2"> 
+<div class="owl-top-narrow overhide" style="margin: 0 -4px;">
+<div id="category-slider-demo-7" class="owl-carousel owl-theme" style="display: block;">
+	{{block type="core/template" template="instagrampro/homepage.phtml"}}
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="we-trust-the">
+<div class="container">
+<h2 class="filter-titleblog" style="margin-top:60px; margin-bottom: 30px;"><span class="content"><strong>Doctors' Speak</strong></span></h2>
+<div id="latest_news" class="owl-top-narrow" style="margin-bottom: 40px;">
+    <div class="recent-posts">
+        <div class="owl-carousel owl-theme">
+            <div class="item" style="width: 49%; float: left;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="post-image">
+                            <img style="height: 240px;" src="{{media url="wysiwyg/Profiles/Praanesh_Kapur_The_Moms_Co.png"}}" alt="Dr. Praneesh Kapur" title="Dr. Praneesh Kapur">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="postTitle">
+                            <h2><a href="https://themomsco.com/blog/2017/03/08/dental-care-during-pregnancy/">9 Pregnancy Dental Care Tips You Must Know</a></h2>
+                        </div>
+                        <div class="postContent"><p>1. How does pregnancy affect the dental hygiene? There is a direct correlation between pregnancy and dental hygiene. The hormonal changes increases susceptibility towards gum problems...</p></div>
+                        <a class="readmore" href="https://themomsco.com/blog/2017/03/08/dental-care-during-pregnancy/">KNOW MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="width: 49%; float: right;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="post-image">
+                        <img style="height: 240px;" src="{{media url="wysiwyg/porto/blog/Nikhil_Nasta_The_Moms_Co.png"}}" alt="Dr. Nikhil Nasta" title="Dr. Nikhil Nasta">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="postTitle">
+                            <h2><a href="https://themomsco.com/blog/2017/03/05/eye-care-during-pregnancy/">9 Things About Eye Care During Pregnancy That No One Told..</a></h2>
+                        </div>
+                        <div class="postContent"><p>1. Does pregnancy have affect on a woman’s vision? Yes. Changes in hormones, metabolism, fluid retention, and blood circulation can all affect your eyesight during pregnancy…</p></div>
+                        <a class="readmore" href = "https://themomsco.com/blog/2017/03/05/eye-care-during-pregnancy/">KNOW MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+

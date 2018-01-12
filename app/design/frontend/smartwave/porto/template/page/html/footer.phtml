@@ -190,7 +190,9 @@
                 <?php
                 if($footer['footer_logo']){
                 ?>
-                    <a href="<?php echo $this->getUrl('') ?>" class="logo"><img src="<?php echo $this->getSkinUrl($footer['footer_logo']); ?>" alt=""/></a>
+                 <div class="col-lg-2">
+                     <a href="<?php echo $this->getUrl('') ?>" class="logo"><img src="<?php echo $this->getSkinUrl($footer['footer_logo']); ?>" alt=""/></a>
+                 </div>
                 <?php
                 }
                 if($footer['footer_bottom_socialicons']){
@@ -207,7 +209,11 @@
                     echo '<div class="custom-block f-right">'.$this->getLayout()->createBlock('cms/block')->setBlockId($footer['footer_bottom_custom_block_id_2'])->toHtml().'</div>';
                 }
                 ?>
-                <address><?php echo $footer['copyrights'] ?></address>
+                <div class="col-lg-10">
+                    <address>
+                        <?php echo $footer['copyrights'] ?>
+                    </address>
+                </div>
                 <?php if(isset($footer['footer_bottom_store_switcher']) && $footer['footer_bottom_store_switcher']) echo $this->getChildHtml("store_switcher"); ?>
             </div>
         </div>
