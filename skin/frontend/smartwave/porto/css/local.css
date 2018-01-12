@@ -3959,6 +3959,7 @@ li.menu-item.menu-item-has-children.menu-parent-item.act {
 .header-container.type13 .compare-link{display:block;float:left;font-size:11px;line-height:26px;margin-left:5px;text-transform:uppercase}
 .header-container.type13 .main-nav ul.menu >li.fl-right{/*padding: 0px 0px 0px 20px;*/}
 .header-container.type13 .main-nav .menu >li.fl-right .nav-sublist-dropdown .container ul .menu-item-has-children .nav-sublist{right:auto;left:100%}
+.header-container.type13 .flex-control-paging li a { width: 32px; height: 32px; background: #fff;background: rgba(225,225,225,0.5)}
 
 .header-container.type13.sticky-header .header-wrapper{background-color:#fff}
 .header-container.type13.sticky-header .main-nav{margin:0 auto}

@@ -1,0 +1,7 @@
+<config>
+   <Magestore_RewardPointsReferFriends>
+      <name>Refer Friend plugin</name>
+      <type>depend</type>
+      <depend>Magestore_RewardPoints</depend>
+   </Magestore_RewardPointsReferFriends>
+</config>

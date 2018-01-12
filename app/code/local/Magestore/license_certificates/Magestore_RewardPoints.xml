@@ -1,0 +1,16 @@
+<config>
+   <Magestore_RewardPoints>
+      <serial>TMQH-6J6203-S5XJ6UZV</serial>
+      <licensenumber>018991</licensenumber>
+      <name>Reward Points Plus Standard</name>
+      <type>commercial</type>
+      <activation_date>Feb 17, 2017</activation_date>
+      <expiration_date/>
+      <order_number>100097393</order_number>
+   </Magestore_RewardPoints>
+   <Magestore_RewardPointsReferFriends>
+      <name>Refer Friend plugin</name>
+      <type>depend</type>
+      <depend>Magestore_RewardPoints</depend>
+   </Magestore_RewardPointsReferFriends>
+</config>
