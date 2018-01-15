@@ -9,7 +9,15 @@
 @font-face {
     font-family: 'Open Sans Semibold';
     src: url("fonts/OpenSans-Semibold-webfont.eot");
-    src: url("fonts/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-Regular-webfont.woff") format("woff"), url("fonts/OpenSans-Semibold-webfont.woff2") format("woff2"), url("fonts/OpenSans-Semibold-webfont.ttf") format("truetype"), url("fonts/OpenSans-Semibold-webfont.svg#Open Sans Semibold") format("svg");
+    src: url("fonts/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-Semibold-webfont.woff") format("woff"), url("fonts/OpenSans-Semibold-webfont.woff2") format("woff2"), url("fonts/OpenSans-Semibold-webfont.ttf") format("truetype"), url("fonts/OpenSans-Semibold-webfont.svg#Open Sans Semibold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url("fonts/OpenSans-Light-webfont.eot");
+    src: url("fonts/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-Light-webfont.woff") format("woff"), url("fonts/OpenSans-Light-webfont.woff2") format("woff2"), url("fonts/OpenSans-Light-webfont.ttf") format("truetype"), url("fonts/OpenSans-Light-webfont.svg#Open Sans Light") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -3968,6 +3976,20 @@ li.menu-item.menu-item-has-children.menu-parent-item.act {
 .header-container.type13 .main-nav ul.menu >li.fl-right{/*padding: 0px 0px 0px 20px;*/}
 .header-container.type13 .main-nav .menu >li.fl-right .nav-sublist-dropdown .container ul .menu-item-has-children .nav-sublist{right:auto;left:100%}
 
+.homepage_type13 h2 { font-size:45px;font-family:'AdamGorry-Inline';color:#225cae;margin: 80px 0}
+
+.holo__btn { font-family:'Open Sans Semibold';border-radius:0;display:inline-block;color:#83766b;border:1px #83766b solid;}
+.holo__btn:hover { background-color:#83766b;color:#ffffff}
+
+.holo__gold__btn { color:#b69224;border-color:#b69224}
+.holo__gold__btn:hover { background-color:#b69224;}
+
+.solid__btn { font-family:'Open Sans Semibold';border-radius:0;display:inline-block;background-color:#83766b;border:1px #83766b solid;color:#ffffff;}
+.solid__btn:hover { color:#83766b;border-color:#83766b;background-color:transparent}
+
+.solid__gold__btn { border-color:#b69224;background-color:#b69224}
+.solid__gold__btn:hover { color:#b69224;border-color:#b69224;background-color:transparent}
+
 #home_section_1.homepage_type13 { background-color: #f3f2f1;min-height: 900px;padding-top:20px;padding-bottom:20px; position: relative; z-index: 1}
 #home_section_1.homepage_type13:before, #home_section_1.homepage_type13:after {content:'';background-color: #f3f2f1;width:1800px;height:900px;position:absolute;left:0;right:0;margin:auto;
     z-index:0;}
@@ -3977,7 +3999,7 @@ li.menu-item.menu-item-has-children.menu-parent-item.act {
 #home_section_1.homepage_type13 .circle_trees { position: absolute; top:0;left:0;right:0;margin:auto;z-index:0;width:900px}
 #home_section_1.homepage_type13 .circle_trees .circle { position: relative;z-index:1;width:900px;height:900px;background-color:#cfcac6;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius: 50%}
 #home_section_1.homepage_type13 .circle_trees .trees { position:absolute;top:-220px;left:-305px;right:0;width:1480px;z-index:0}
-#home_section_1.homepage_type13 .home_section_1_content { position:relative;z-index:1;min-height: 900px;padding-top:100px;font-family: 'Open Sans';font-size: 30px;line-height: 47px;color:#6e6660}
+#home_section_1.homepage_type13 .home_section_1_content { position:relative;z-index:1;min-height:900px;padding-top:100px;font-family: 'Open Sans';font-size: 30px;line-height: 47px;color:#6e6660}
 #home_section_1.homepage_type13 h2 { font-family: 'AdamGorry-Inline';font-size:85px;color:#fff;margin:60px 0}
 #home_section_1.homepage_type13 .home_section_top { margin-top:250px;position:relative;z-index:1}
 #home_section_1.homepage_type13 .home_section_top + .row { position:relative;z-index:1}
@@ -3985,7 +4007,54 @@ li.menu-item.menu-item-has-children.menu-parent-item.act {
 #home_section_1.homepage_type13 .stamp_logos img { margin:0 20px}
 
 #home_section_2.homepage_type13 { background:url(../images/sector_2_bg.jpg) no-repeat 50% 50% #fff;background-size:100%;padding:120px 15px;position:relative;z-index:0}
-#home_section_2.homepage_type13 h2 { font-size:45px;font-family:'AdamGorry-Inline';color:#225cae; margin: 80px 0}
+
+#home_section_3.homepage_type13 { padding:30px 15px 110px}
+#home_section_3.homepage_type13 .nav-tabs { border:0;min-height:45px}
+#home_section_3.homepage_type13 .nav-tabs>li { transition: all 0.3s ease;-moz-transition: all 0.3s ease;-webkit-transition: all 0.3s ease;opacity:0.5;margin-right:25px;float:none;display:inline-block;border:0;border-bottom:1px transparent solid;background-color: transparent}
+#home_section_3.homepage_type13 .nav-tabs>li:hover,
+#home_section_3.homepage_type13 .nav-tabs>li:focus,
+#home_section_3.homepage_type13 .nav-tabs>li.active { opacity:1;border-bottom-color:#b69224;background-color: transparent}
+#home_section_3.homepage_type13 .nav-tabs>li:last-child { margin:0}
+#home_section_3.homepage_type13 .nav-tabs>li>a { padding:0 10px 4px; margin:0;border:0;text-transform:uppercase;display:block !important;font-size:24px;font-family:'Open Sans Semibold';color:#b69224;letter-spacing:4px;background-color: transparent}
+#home_section_3.homepage_type13 .nav-tabs>li.active>a { border:0}
+#home_section_3.homepage_type13 .tab-content { margin:60px 0}
+#home_section_3.homepage_type13 .widget-title { display:none;}
+#home_section_3.homepage_type13 .products-grid { display:flex;flex-direction:row;justify-content: space-between}
+#home_section_3.homepage_type13 .products-grid li.item {display:flex;flex-direction: column;justify-content: space-between;transition: all 0.3s ease;-moz-transition: all 0.3s ease;-webkit-transition: all 0.3s ease;padding: 0 0px 25px; float: none;margin: 0 10px; width: 32%; border:1px #fff solid}
+#home_section_3.homepage_type13 .products-grid li.item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.3);-moz-box-shadow: 0 10px 30px rgba(0,0,0,0.3);-webkit-box-shadow: 0 10px 30px rgba(0,0,0,0.3)}
+#home_section_3.homepage_type13 .products-grid li:first-child,
+#home_section_3.homepage_type13 .products-grid li:last-child { margin:0}
+#home_section_3.homepage_type13 .widget-new-products .products-grid .product-image { background-color:#f2f0ef;width:auto;height:auto;padding:0;}
+#home_section_3.homepage_type13 .widget-new-products .products-grid .product-image img { width:100%}
+#home_section_3.homepage_type13 .product__bottom { margin: 40px 25px 0;}
+#home_section_3.homepage_type13 .product-name { font-size: 24px; margin-top: 40px}
+#home_section_3.homepage_type13 .price-box .price { font-weight:normal;font-size:24px;color:#b69224}
+#home_section_3.homepage_type13 button.button { width:100%;font-family:'Open Sans Semibold'; text-transform: uppercase}
+#home_section_3.homepage_type13 button.button span { font-size: 16px;background:#3666b1; line-height: 60px;transition: all 0.3s ease;-moz-transition: all 0.3s ease;-webkit-transition: all 0.3s ease}
+#home_section_3.homepage_type13 button.button:hover span { opacity:1;background:#09418e}
+#home_section_3.homepage_type13 .add-to-links { display:none}
+#home_section_3.homepage_type13 .holo__btn { font-size:16px;padding:15px 50px;text-transform:uppercase}
+
+#home_section_4.homepage_type13 { padding:30px 15px 110px; background: url(../images/icon-bg.png) repeat #f5f4f3;}
+#home_section_4.homepage_type13 .heading__area { margin-bottom: 40px;}
+#home_section_4.homepage_type13 .heading__area p { font-size: 28px}
+#home_section_4.homepage_type13 .heading__area strong { font-family:'Open Sans Semibold'; font-weight: normal}
+#home_section_4.homepage_type13 h2 { margin-bottom: 10px}
+#home_section_4.homepage_type13 .shop__box > div { padding:20px;background-color:rgba(135,122,113,0.3)}
+#home_section_4.homepage_type13 .shop__box > div > div {background-color:#ffffff;padding:25px}
+#home_section_4.homepage_type13 .shop__box.gold-box > div { background-color:rgba(182,146,36,0.3)}
+#home_section_4.homepage_type13 .shop__box h3 { margin:10px 0 20px;font-family:'Open Sans Light';font-weight:300;font-size:45px;color:#83766b;letter-spacing:5px}
+#home_section_4.homepage_type13 .shop__box.gold-box h3 { color:#b69224;}
+#home_section_4.homepage_type13 .shop__box h3 span { color:#225cae;}
+#home_section_4.homepage_type13 .shop__box .icon { display:block}
+#home_section_4.homepage_type13 .holo__btn { font-family:'Open Sans';width:100%;letter-spacing:8px;font-size:16px;padding:20px 50px}
+
+#home_section_5.homepage_type13 { background: url(../images/mom-to-be.jpg) no-repeat 50% 50% #fff;background-size:cover;height:90vh;min-height:650px}
+#home_section_5.homepage_type13 > div { color:#877a71;height:100%;display:flex;flex-direction: column;flex-wrap: wrap;justify-content: center;}
+#home_section_5.homepage_type13 .white__box { background-color:rgba(255,255,255,0.7);border:4px #fff solid;padding:70px}
+#home_section_5.homepage_type13 .white__box p { font-size:24px;letter-spacing:5px;font-family:'Open Sans Semibold';}
+#home_section_5.homepage_type13 .white__box h2 { font-size: 80px;color:inherit;margin:20px 0}
+#home_section_5.homepage_type13 .white__box .btn { font-family:'Open Sans';letter-spacing:8px;font-size:16px;padding:20px 50px}
 
 .header-container.type13.sticky-header .header-wrapper{background-color:#fff}
 .header-container.type13.sticky-header .main-nav{margin:0 auto}

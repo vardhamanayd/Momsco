@@ -40,9 +40,74 @@
 
 <div id="home_section_3" class="col-xs-12 homepage_type13">
 	<div class="container">
-		<div class=""></div>
+		<div class="col-xs-12">
+			<h2 class="text-uppercase">Our Products</h2>
+		</div>
+		<div class="col-xs-12">
+			<ul class="nav nav-tabs text-center">
+				<li class="active"><a data-toggle="tab" href="#pregnancy">Pregnancy</a></li>
+				<li><a data-toggle="tab" href="#mom">Mom</a></li>
+				<li><a data-toggle="tab" href="#baby">Baby</a></li>
+			  </ul>
+		</div>
+		<div class="col-xs-12 tab-content">
+			<div id="pregnancy" class="tab-pane fade in active">
+				{{widget type="catalog/product_widget_new" display_type="all_products" products_count="3" template="catalog/product/widget/new/content/new_grid.phtml"}}
+			</div>
+			<div id="mom" class="tab-pane fade">
+				{{widget type="catalog/product_widget_new" display_type="all_products" products_count="3" template="catalog/product/widget/new/content/new_grid.phtml"}}
+			</div>
+			<div id="baby" class="tab-pane fade">
+				{{widget type="catalog/product_widget_new" display_type="all_products" products_count="3" template="catalog/product/widget/new/content/new_grid.phtml"}}
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<a href="" class="btn holo__btn holo__gold__btn">View All Products</a>
+		</div>
 	</div>
 </div>
+
+<div id="home_section_4" class="col-xs-12 homepage_type13">
+	<div class="container">
+		<div class="col-xs-12 heading__area">
+			<h2 class="text-uppercase">Gifts & Bundles</h2>
+			<p>Our <strong>CUSTOMISED GIFT SETS</strong> and Bundles<br/> are great gift ideas for moms and baby.</p>
+		</div>
+		<div class="col-xs-8 col-xs-offset-2">
+			<div class="col-md-6 shop__box gold-box">
+				<div class="col-xs-12">
+					<div class="col-xs-12 text-uppercase">
+						<div class="icon"><img src="{{media url="wysiwyg/smartwave/blog/mom-icon.png"}}" alt="Mom" /></div>
+						<h3>Gifts For The <span>Mom</span></h3>
+						<a href="#" class="btn holo__btn holo__gold__btn text-uppercase">Shop Now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 shop__box">
+				<div class="col-xs-12">
+					<div class="col-xs-12 text-uppercase">
+						<div class="icon"><img src="{{media url="wysiwyg/smartwave/blog/baby-icon.png"}}" alt="Baby" /></div>
+						<h3>Gifts For The <span>Baby</span></h3>
+						<a href="#" class="btn holo__btn text-uppercase">Shop Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="home_section_5" class="col-xs-12 homepage_type13">
+	<div class="container">
+		<div class="col-xs-10 col-xs-offset-1 white__box">
+			<p class="text-uppercase">About New Products</p>
+			<h2 class="text-uppercase">Mom-To-Be</h2>
+			<a href="#" class="btn solid__btn solid__gold__btn text-uppercase" >Know More</a>
+		</div>
+	</div>
+</div>
+
+
+
 
 
 
