@@ -77,7 +77,7 @@
 			<div class="col-md-6 shop__box gold-box">
 				<div class="col-xs-12">
 					<div class="col-xs-12 text-uppercase">
-						<div class="icon"><img src="{{media url="wysiwyg/smartwave/blog/mom-icon.png"}}" alt="Mom" /></div>
+						<div class="icon custom-fonts mom-font"></div>
 						<h3>Gifts For The <span>Mom</span></h3>
 						<a href="#" class="btn holo__btn holo__gold__btn text-uppercase">Shop Now</a>
 					</div>
@@ -86,7 +86,7 @@
 			<div class="col-md-6 shop__box">
 				<div class="col-xs-12">
 					<div class="col-xs-12 text-uppercase">
-						<div class="icon"><img src="{{media url="wysiwyg/smartwave/blog/baby-icon.png"}}" alt="Baby" /></div>
+						<div class="icon custom-fonts baby-font"></div>
 						<h3>Gifts For The <span>Baby</span></h3>
 						<a href="#" class="btn holo__btn text-uppercase">Shop Now</a>
 					</div>
@@ -106,8 +106,61 @@
 	</div>
 </div>
 
+<div id="home_section_6" class="col-xs-12 homepage_type13">
+	<div class="container">
+		<div class="col-md-6 text-left">
+			<p>Our All-Natural, Caffeine-Free Herbal Blend of Chamomile Flowers, Lemon Balm, Peppermint Leaves and Blackcurrant Leaves helps ease heartburn and calms the digestive system. Made by Expert Blenders in Europe for Moms and Moms-To-Be.</p>
+			<a href="#" class="btn solid__btn solid__blue__btn text-uppercase">Know More</a>
+		</div>
+		<div class="col-md-7">
+			<img src="{{media url="wysiwyg/porto/home-tea-for-acidity-relief.jpg"}}" alt="Tea For Acidity Relief" />
+		</div>
+	</div>
+</div>
 
-
+<div id="home_section_7" class="col-xs-12 homepage_type13">
+	<div class="container">
+		<div class="col-xs-10 col-xs-offset-1 heading__area">
+			<h2 class="text-uppercase">Advice</h2>
+			<p>Born out of a mom's need to give only the best to her babies, we, at The Moms Co., are on a mission to help moms make safe, natural, effective choices for themselves and their families.</p>
+		</div>		
+		<div class="col-xs-12 advicer-list">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="col-xs-12 text-uppercase see-what">
+						See What Moms Say
+					</div>
+					<div class="col-xs-12">
+						<div class="row">
+							<img src="{{media url="wysiwyg/porto/advice-1.jpg"}}" alt="Advice" />
+						</div>
+						<div class="col-xs-12 text-uppercase">
+							<div class="advice-name">Neha Majan</div>
+							<div class="advice-desc">Lift Your Mood with a Sweet Aroma</div>
+							<a href="" class="btn holo__btn">Read More</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="col-xs-12 text-uppercase see-what">
+						See What Doctors Say
+					</div>
+					<div class="col-xs-12">
+						<div class="row">
+							<img src="{{media url="wysiwyg/porto/advice-2.jpg"}}" alt="Advice" />
+						</div>
+						<div class="col-xs-12 text-uppercase">
+							<div class="advice-name">Neharika Malhotra</div>
+							<div class="advice-desc">Q & A with Dr. Neharika Malhotra</div>
+							<a href="" class="btn holo__btn">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
 
 
 
