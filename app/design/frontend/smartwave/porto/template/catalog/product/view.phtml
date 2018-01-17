@@ -118,7 +118,7 @@ if($enable_addtocart_sticky){
 
        
 
-                <div class="col-sm-12 productdetails2">
+                <div class="col-sm-12 productdetails2 hide">
                         <div class="col-sm-6 productdetails3">
 
                 <?php if($enabled_richsnippets): ?>
@@ -140,10 +140,7 @@ if($enable_addtocart_sticky){
                      <a href="#dsq-app1">Reviews</a>
                  </div>
             </div>
-                        <div class="col-sm-6 productdetails4">
 
-                            <?php echo $_product->getData('product_des'); ?> 
-            </div>
                 </div>
 
         <div class="row">
@@ -209,9 +206,20 @@ if($enable_addtocart_sticky){
                     </span>
                 <?php endif; ?>
                 <?php endif; ?> */?>
-
-                 <div class="product-name">
-                    <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                <div class="row">
+                    <div class="col-xs-12 product-name">
+                        <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 ideal-for">
+                        <?php echo $_product->getData('product_des'); ?>
+                    </div>
+                    <div class="col-sm-4" <?php if($enabled_richsnippets) echo $helper_richsnippets->getOfferItemscope(); ?>>
+                        <?php echo $this->getChildHtml('product_type_data'); ?>
+                        <?php echo $this->getTierPriceHtml(); ?>
+                        <?php echo $price_properties; ?>
+                    </div>
                 </div>
                 <?php if ($_product->getShortDescription()):?>
                     <div class="short-description" style="display:none;">
@@ -219,12 +227,8 @@ if($enable_addtocart_sticky){
                         <div class="std" <?php if($enabled_richsnippets): ?>itemprop="description"<?php endif; ?>><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
                     </div>
                 <?php endif;?>
-                <div class="product-info">
-                    <div <?php if($enabled_richsnippets) echo $helper_richsnippets->getOfferItemscope(); ?>>
-                        <?php echo $this->getChildHtml('product_type_data'); ?>
-                        <?php echo $this->getTierPriceHtml(); ?>
-                        <?php echo $price_properties; ?>
-                    </div>
+                <div class="product-info hide">
+
                     <?php echo $this->getChildHtml('extrahint') ?>
                     <?php if ($this->canEmailToFriend()): ?>
                         <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
@@ -241,7 +245,7 @@ if($enable_addtocart_sticky){
                         <?php if($_product->isSaleable()): ?>
 
                             <?php echo $this->getChildHtml('addtocart') ?>
-                            <div class="add-acert col-sm-6" id="accert">    
+                            <div class="add-acert col-sm-6" id="accert">
                             <a class="add-cart123" href="<?php echo $this->getUrl('gifts-and-bundles.html');?>"><span>See Gifts & Bundles</span></a>
                         </div>
                             <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
@@ -296,7 +300,7 @@ if($enable_addtocart_sticky){
                             </div>
                         </section>
                     </div>
-                
+
                 <div class="clearer"></div>
                 <?php echo $this->getChildHtml('addthis_sharetool'); ?>
             </div>
@@ -497,7 +501,7 @@ if($enable_addtocart_sticky){
     </script>
     </div>
 
-
+<?php /*
         <div class="product-bootm-logo">
          <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product-bootom-logo')->toHtml(); ?>
         </div>
@@ -515,6 +519,7 @@ if($enable_addtocart_sticky){
     </div>
     
     <?php echo $this->getChildHtml('upsell_products'); ?>
+	*/ ?>
 </div>
 <script type="text/javascript">
     jQuery(function($){

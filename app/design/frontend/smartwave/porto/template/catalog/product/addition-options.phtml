@@ -1,0 +1,20 @@
+<div class="umesh">
+	<div class="product-bootm-logo">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product-bootom-logo')->toHtml(); ?>
+	</div>
+</div>
+<div class="container">
+	<div class="col-sm-12 ingridents">
+	<?php 
+	$product = Mage::registry('current_product'); 
+	$id = $this->getRequest()->getParam('id');
+	$current_product=Mage::getModel('catalog/product')->load($id);
+	?>
+        <div class="col-sm-12">
+            <?php echo $current_product->getData('ingridents'); ?> 
+        </div>
+    </div>
+	<div class="product-collateral">
+        <?php echo $this->getChildHtml('product_additional_data'); ?>
+    </div>		
+</div>

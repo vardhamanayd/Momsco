@@ -11,6 +11,7 @@ $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$cod
         $ratio_height = 400;
 ?>
 <?php if(count($this->getItemCollection()->getItems())): ?>
+<div class="container">
 <div class="box-collateral box-up-sell category-products">
     <h2><span><?php echo $this->__('Also Purchased') ?></span></h2>
     <?php $_columnCount = 4; ?>
@@ -174,5 +175,6 @@ $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$cod
             jQuery('.col-main .products-grid li:nth-child(4n)').addClass('nth-child-4n');
             jQuery('.col-main .products-grid li:nth-child(4n+1)').addClass('nth-child-4np1');
         </script>
+</div>
 </div>
     <?php endif; ?>

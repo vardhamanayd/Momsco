@@ -1,41 +1,38 @@
 <?php
-    $_helper    = Mage::helper('catalog/output');
-    $_category  = Mage::registry('current_category');
-    $store = Mage::app()->getStore();
-    $code  = $store->getCode();
+$_helper = Mage::helper('catalog/output');
+$_category = Mage::registry('current_category');
+$store = Mage::app()->getStore();
+$code = $store->getCode();
 
-    $_imgHtml   = '';
-    if ($_imgUrl = $_category->getImageUrl()) {
-        $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></p>';
-        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
-    }
-    if($_description=$_category->getDescription()){
-        if(Mage::getStoreConfig("porto_settings/category/fullwidth_description",$code)){
-?>
-<div class="category-banner">
-
-<div class="container">
-
-<div class="col-sm-12" style="padding-left: 0px;">
-    <div class="col-sm-5" style="padding-left: 0px; padding-right: 30px;">
-        <?php echo $_imgHtml ?>
-    </div>
-
-    <div class="col-sm-7">
-    <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-    <span class="borderheading"></span>
-        <?php
-        echo $_helper->categoryAttribute($_category, $_description, 'description');
+$_imgHtml = '';
+if ($_imgUrl = $_category->getImageUrl()) {
+    $_imgHtml = '<p class="category-image"><img src="' . $_imgUrl . '" alt="' . $this->escapeHtml($_category->getName()) . '" title="' . $this->escapeHtml($_category->getName()) . '" /></p>';
+    $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+}
+if ($_description = $_category->getDescription()) {
+    if (Mage::getStoreConfig("porto_settings/category/fullwidth_description", $code)) {
         ?>
-    </div>
-</div>
-</div>
-</div>
-<?php
-        }
-    }else if(Mage::getStoreConfig("porto_settings/header/type",$code) == "10"){
-?>
-<div class="page-header">&nbsp;</div>
-<?php
+        <div class="category-banner">
+
+            <div class="container">
+
+                <div class="col-sm-12" style="padding-left: 0px;">
+                    <div class="col-sm-5 hide" style="padding-left: 0px; padding-right: 30px;">
+                        <?php echo $_imgHtml ?>
+                    </div>
+
+                    <div class="col-sm-10 col-sm-offset-1 text-center">
+                        <h1 class="text-uppercase"><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+                        <?php echo $_helper->categoryAttribute($_category, $_description, 'description'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
     }
+} else if (Mage::getStoreConfig("porto_settings/header/type", $code) == "10") {
+    ?>
+    <div class="page-header">&nbsp;</div>
+    <?php
+}
 ?>
