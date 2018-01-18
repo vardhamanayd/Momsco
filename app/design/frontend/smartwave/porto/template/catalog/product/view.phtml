@@ -97,11 +97,11 @@ if($enable_addtocart_sticky){
                         </span>
                     <?php endif; ?>
                     <?php endif; ?>
-					<?php if ($_product->isAvailable()): ?>
+					<?php /* if ($_product->isAvailable()): ?>
 						<p class="availability in-stock"><span>(<?php echo $this->__('In stock') ?>)</span></p>
 					<?php else: ?>
 						<p class="availability out-of-stock"><span>(<?php echo $this->__('Out of stock') ?>)</span></p>
-					<?php endif; ?>
+					<?php endif; */ ?>
                 </div>
                 <?php if($_product->isSaleable()): ?>
                 <?php $buttonTitle = $this->__('Add to Cart'); ?>
@@ -211,10 +211,12 @@ if($enable_addtocart_sticky){
                         <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row ideal-for-price-box">
+                    <?php if($_product->getData('product_des')) : ?>
                     <div class="col-sm-8 ideal-for">
                         <?php echo $_product->getData('product_des'); ?>
                     </div>
+                    <?php endif;?>
                     <div class="col-sm-4" <?php if($enabled_richsnippets) echo $helper_richsnippets->getOfferItemscope(); ?>>
                         <?php echo $this->getChildHtml('product_type_data'); ?>
                         <?php echo $this->getTierPriceHtml(); ?>
@@ -239,15 +241,19 @@ if($enable_addtocart_sticky){
                     <?php echo $this->getChildHtml('alert_urls') ?>
                     <?php echo $this->getChildHtml('other');?>
                 </div>
+                <div class="product-full-desc">
+                    <?php echo $_product->getData('loveit'); ?>
+                    <?php echo $_product->getDescription(); ?>
+                </div>
                 <?php if (!$this->hasOptions()):?>
                     <div class="clearer"></div>
                     <div class="add-to-box">
                         <?php if($_product->isSaleable()): ?>
 
                             <?php echo $this->getChildHtml('addtocart') ?>
-                            <div class="add-acert col-sm-6" id="accert">
-                            <a class="add-cart123" href="<?php echo $this->getUrl('gifts-and-bundles.html');?>"><span>See Gifts & Bundles</span></a>
-                        </div>
+                            <div class="add-acert col-xs-6 pull-right" id="accert">
+                                <a class="link-type" href="<?php echo $this->getUrl('gifts-and-bundles.html');?>"><span>See Gifts & Bundles</span></a>
+                            </div>
                             <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
                             <?php endif; ?>
                         <?php endif; ?>
@@ -274,32 +280,32 @@ if($enable_addtocart_sticky){
                 <div class="product-collateral">
                     <?php echo $this->getChildHtml('product_additional_data'); ?>
                 </div>*/?>
-            <div class="container5">
+            <!--<div class="container5">
                         
                         <section class="ac-container">
                             <div>
                                 <input id="ac-1" name="" type="checkbox" checked />
                                 <label for="ac-1" style="border-bottom: 1px solid #aea299;">Why You'll Love It</label>
                                 <article class="ac-small">
-                                    <p><?php echo $_product->getData('loveit'); ?> </p>
+                                    <p><?php //echo $_product->getData('loveit'); ?> </p>
                                 </article>
                             </div>
                             <div>
                                 <input id="ac-2" name="" type="checkbox" />
                                 <label for="ac-2" style="border-bottom: 1px solid #aea299;">Details</label>
                                 <article class="ac-medium">
-                                    <p><?php echo $_product->getDescription(); ?></p>
+                                    <p><?php //echo $_product->getDescription(); ?></p>
                                 </article>
                             </div>
                             <div>
                                 <input id="ac-3" name="" type="checkbox" />
                                 <label for="ac-3" style="border-bottom: 1px solid #aea299;">How To Use</label>
                                 <article class="ac-large">
-                                    <p><?php echo $_product->getData('how_to_use'); ?> </p>
+                                    <p><?php //echo $_product->getData('how_to_use'); ?> </p>
                                 </article>
                             </div>
                         </section>
-                    </div>
+                    </div>-->
 
                 <div class="clearer"></div>
                 <?php echo $this->getChildHtml('addthis_sharetool'); ?>

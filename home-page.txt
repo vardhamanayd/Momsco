@@ -33,8 +33,9 @@
 			<h2 class="text-uppercase">Born out of a Moms need</h2>
 		</div>
 		<div class="col-xs-12">
-			<iframe class="col-xs-12" width="560" height="500" src="https://www.youtube.com/embed/FrCSayZXSTo?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-			<!--<img src="{{media url="wysiwyg/porto/video_player.jpg"}}" alt="Player" />-->
+			<iframe class="col-xs-12" width="560" height="500" src="https://www.youtube.com/embed/U2kttQ8wsD4?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<!--<iframe class="col-xs-12" width="560" height="500" src="https://www.youtube.com/embed/FrCSayZXSTo?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<img src="{{media url="wysiwyg/porto/video_player.jpg"}}" alt="Player" />-->
 		</div>
 	</div>
 </div>
@@ -111,7 +112,7 @@
 	<div class="container">
 		<div class="col-md-6 text-left">
 			<p>Our All-Natural, Caffeine-Free Herbal Blend of Chamomile Flowers, Lemon Balm, Peppermint Leaves and Blackcurrant Leaves helps ease heartburn and calms the digestive system. Made by Expert Blenders in Europe for Moms and Moms-To-Be.</p>
-			<a href="#" class="btn solid__btn solid__blue__btn text-uppercase">Know More</a>
+			<a href="/pregnancy/shop-by-product/all-products/tea-for-acidity-relief.html" class="btn solid__btn solid__blue__btn text-uppercase">Know More</a>
 		</div>
 		<div class="col-md-7">
 			<img src="{{media url="wysiwyg/porto/home-tea-for-acidity-relief.jpg"}}" alt="Tea For Acidity Relief" />
@@ -187,6 +188,39 @@
 	</div>	
 </div>
 
+
+<div class="homepage-bar product-view-page-logo">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{{media url="wysiwyg/porto/blog/L1.png"}}" alt="Australian Certified Toxic Free" />
+					</div>
+					<div class="col-xs-9 text-left">
+						<h2 class="text-uppercase">
+							Australian Certified Toxic Free
+						</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+					</div>
+				</div>				
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-xs-3">
+						<img src="{{media url="wysiwyg/porto/blog/L2.png"}}" alt="Dermatologically Tested Ok" />
+					</div>
+					<div class="col-xs-9 text-left">
+						<h2 class="text-uppercase">
+							Dermatologically Tested Ok
+						</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <div class="custom-support1" style="padding-top: 0px;">

@@ -163,8 +163,8 @@ var i = 0;
                             ?>
                         </h2>
                         <div class="row">
-                            <div class="product__qty col-md-10">Size: 100ml / 3.4 Fl. Oz.</div>
-                            <div class="product__price col-md-2 text-right">393</div>
+                            <div class="product__qty col-md-8">Size: 100ml / 3.4 Fl. Oz.</div>
+                            <div class="product__price col-md-4 text-right"><?php echo $this->getPriceHtml($_product, true) ?></div>
                         </div>
                     </div>
                     
@@ -209,10 +209,11 @@ var i = 0;
                             <?php endif; ?>
                         <?php endif; ?>
                             <div class="row">
+							<?php if($product->getData('product_des') != ''): ?>
                                 <div class="col-md-7 ideal_for">
-                                    <span>Ideal for:</span><br/>
-                                    Swollen Feet & Ankles
+                                    <?php echo $product->getData('product_des'); ?>
                                 </div>
+							<?php endif; ?>
                                 <div class="col-md-5 text-right">
                                     <?php if($product->isSaleable()): ?>
                                         <?php  if ( !($product->getTypeInstance(true)->hasOptions($product)/*$_product->getData('has_options')*/ || $product->isGrouped()) ) :  ?>
