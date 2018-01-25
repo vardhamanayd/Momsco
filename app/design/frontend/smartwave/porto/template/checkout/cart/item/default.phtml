@@ -181,7 +181,7 @@ $ratio = ($aspect_ratio || (!$aspect_ratio && Mage::getStoreConfig("porto_settin
     <?php endif; ?>
     <td>
         <div class="qty-holder">
-            <a href="javascript:void(0)" class="table_qty_dec">-</a><input name="cart[<?php echo $_item->getId() ?>][qty]" data-cart-item-id="<?php echo $this->jsQuoteEscape($_item->getSku()) ?>" value="<?php echo $this->getQty() ?>" size="4" title="<?php echo $this->__('Qty') ?>" class="input-text qty" maxlength="12" /><a href="javascript:void(0)" class="table_qty_inc">+</a>
+            <a href="javascript:void(0)" class="table_qty_dec btn solid__btn solid__blue__btn">-</a><input name="cart[<?php echo $_item->getId() ?>][qty]" data-cart-item-id="<?php echo $this->jsQuoteEscape($_item->getSku()) ?>" value="<?php echo $this->getQty() ?>" size="4" title="<?php echo $this->__('Qty') ?>" class="input-text qty" maxlength="12" /><a href="javascript:void(0)" class="table_qty_inc btn solid__btn solid__blue__btn">+</a>
             <?php if ($isVisibleProduct): ?>
                 <a class="edit-qty" href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><i class="icon-pencil"></i></a>
             <?php endif ?>

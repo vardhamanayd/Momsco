@@ -55,9 +55,9 @@
 
 /** BASE OPC ELEMENTS **/
 .opc-wrapper-opc{margin: 0 auto;}
-.opc-wrapper-opc label{color:#393939;font-weight:normal;font-size:14px;line-height: 1.25em;margin-bottom:2px;text-align: left;text-transform: none;background:none !important}
+.opc-wrapper-opc label{color:#393939;font-weight:normal;font-size:14px;line-height:normal;margin-bottom:2px;text-align: left;text-transform: none;background:none !important}
 .opc-wrapper-opc .control label{padding-left:10px}
-.opc-wrapper-opc h3{font-weight:600;color:#404040; font-size:16px;text-align:left;border-bottom:1px solid #b6b6b6;padding-bottom:8px;line-height: 1;margin-bottom: 20px;text-transform: none;}
+.opc-wrapper-opc h3{font-weight:600;color:#404040; font-size:16px;text-align:left;border-bottom:1px solid #b6b6b6;padding-bottom:8px;margin-bottom: 20px;text-transform: none;}
 .opc-wrapper-opc .validation-advice{font-weight:normal;text-align: left;}
 .opc-wrapper-opc h2{color:#4a4a4a; font-size:36px; font-weight:400;text-align:left;text-transform:none !important}
 .opc-wrapper-opc p{font-size:16px; color:#393939;text-align:left;margin: 0 0 10px;}
@@ -172,11 +172,11 @@
 .opc-wrapper-opc .discount-block .discount{margin-top:10px}
 .opc-wrapper-opc .discount-block .input-box {width:100%;padding:0}
 .opc-wrapper-opc .discount-block input[type="text"]{width:100%;height:38px;}
-.opc-wrapper-opc .discount-block .button{display:block;border:none;margin: 0 auto;float:left;}
+.opc-wrapper-opc .discount-block .button{display:block;/*border:none;*/margin: 0 auto;float:left;}
 .opc-wrapper-opc .discount-block .button span{border:none;padding: 0;}
 .opc-wrapper-opc .discount-block .button span span{padding:0 20px}
 .opc-wrapper-opc .discount-block .buttons-set{margin-top: 10px;overflow: hidden;padding-top: 0;}
-.opc-wrapper-opc .discount-block .apply-coupon{float:left}
+.opc-wrapper-opc .discount-block .apply-coupon{float:left;margin:0}
 .opc-wrapper-opc .discount-block .remove-coupon{float: right !important;}
 
 
@@ -289,7 +289,7 @@ float:right;margin-left:16px;}
 .opc-wrapper-opc .opc-newsletter li label{color:#676767; font-size:14px;font-weight:normal;padding-left:4px;}
 .opc-wrapper-opc .opc-newsletter li .input-box{float:left; width: auto;}
 
-.opc-wrapper-opc button{background:none !important;border:none !important;padding:0;}
+.opc-wrapper-opc button{/*background:none;border:none;*/padding:0;}
 .opc-wrapper-opc button span{display:block;}
 
 
@@ -318,7 +318,7 @@ float:right;margin-left:16px;}
 .review-menu-block a.review-total{height:38px;color:#fff;display:block; background-color:#08c;border-radius:5px;cursor:pointer;padding:0 20px;text-decoration:none}
 .review-menu-block a.review-total.open,.review-menu-block a.review-total:hover{text-decoration:none;opacity:0.8;filter:alpha(opacity=80);}
 .review-menu-block a.review-total .icon-cart{margin-right:5px}
-.review-menu-block a.review-total span{font-size:13px;text-transform:uppercase;line-height:38px;}
+.review-menu-block a.review-total span{font-size:16px;text-transform:uppercase;line-height:38px;}
 .review-menu-block a.review-total span span{float:none !important;background:none !important;margin:0 !important;padding:0 !important}
 .opc-wrapper-opc #opc-review-block{position: absolute;right: 0;top: 40px;width: 300px;background-color: #fff;border-width: 6px 0 0 0;border-style: solid;border-color: #08c;z-index: 1;border-radius: 8px 8px 5px 5px;color: #777;box-shadow: 0 3px 8px rgba(0,0,0,0.5);margin-top: 10px;padding: 30px 10px;}
 /*.opc-wrapper-opc #opc-review-block:before{content: "";position: absolute;border: 10px solid transparent;display: block;right: 15px;top: -25px;border-bottom-color: #08c;}*/
@@ -344,7 +344,7 @@ float:right;margin-left:16px;}
 .opc-wrapper-opc .opc-data-table tfoot tr.last{display:none}
 .opc-wrapper-opc .opc-data-table .btn-remove{display:none}
 .opc-review-actions{border-top:1px solid #b6b6b6;}
-.opc-review-actions h5{color:#3f3f3f; font-size:16px;font-weight:bold;margin-top:30px;margin-bottom:10px;}
+.opc-review-actions h5{color:#3f3f3f;font-size:16px;font-weight:bold;margin-top:30px;margin-bottom:10px;}
 .opc-review-actions h5 span{margin-left:45px;}
 .opc-review-actions h5 span span{margin:0}
 

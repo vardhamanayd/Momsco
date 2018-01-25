@@ -58,7 +58,7 @@ if($enable_addtocart_sticky){
                 <div class="sticky-image">
                     <img src="<?php if($aspect_ratio):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(50);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width,$ratio_height); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                 </div>
-                <div class="sticky-detail">
+                <div class="sticky-detail">Qty:
                     <div class="product-name-area">
                         <h2 class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h2>
                         <?php echo $this->getPriceHtml($_product, false, '_clone') ?>
@@ -106,7 +106,7 @@ if($enable_addtocart_sticky){
                 <?php if($_product->isSaleable()): ?>
                 <?php $buttonTitle = $this->__('Add to Cart'); ?>
                     <div class="add-to-cart" >
-                        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><i class="icon-cart"></i><?php echo $buttonTitle ?></span></span></button>
+                        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
                     </div>
                 <?php endif; ?>
             </div>
@@ -252,7 +252,9 @@ if($enable_addtocart_sticky){
 
                             <?php echo $this->getChildHtml('addtocart') ?>
                             <div class="add-acert col-xs-6 pull-right" id="accert">
-                                <a class="link-type" href="<?php echo $this->getUrl('gifts-and-bundles.html');?>"><span>See Gifts & Bundles</span></a>
+                                <div class="row">
+                                    <a class="link-type" href="<?php echo $this->getUrl('gifts-and-bundles.html');?>"><span>See Gifts & Bundles</span></a>
+                                </div>
                             </div>
                             <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
                             <?php endif; ?>

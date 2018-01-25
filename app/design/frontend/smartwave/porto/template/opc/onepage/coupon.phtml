@@ -6,9 +6,9 @@
                 <input class="input-text" id="coupon_code" type="text" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" autocomplete="off"/>
             </div>
             <div class="buttons-set">
-                <button type="button" title="<?php echo $this->__('Apply') ?>" class="button apply-coupon"  value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>
+                <button type="button" title="<?php echo $this->__('Apply') ?>" class="button apply-coupon btn solid__btn solid__blue__btn text-uppercase"  value="<?php echo $this->__('Apply') ?>"><?php echo $this->__('Apply') ?></button>
                 <?php if(strlen($this->getCouponCode())): ?>
-                    &nbsp; <button type="button" title="<?php echo $this->__('Cancel') ?>" class="button remove-coupon right"  value="<?php echo $this->__('Cancel') ?>"><span><span><?php echo $this->__('Cancel') ?></span></span></button>
+                    &nbsp; <button type="button" title="<?php echo $this->__('Cancel') ?>" class="button remove-coupon right btn solid__btn text-uppercase"  value="<?php echo $this->__('Cancel') ?>"><?php echo $this->__('Cancel') ?></button>
                 <?php endif;?>
             </div>
         </div>

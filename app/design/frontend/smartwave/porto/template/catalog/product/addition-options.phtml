@@ -1,20 +1,35 @@
-<div class="umesh">
-	<div class="product-bootm-logo">
-		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product-bootom-logo')->toHtml(); ?>
-	</div>
+
+<div class="product-bootm-logo">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product-bootom-logo')->toHtml(); ?>
 </div>
-<div class="container">
-	<div class="col-sm-12 ingridents">
-	<?php 
-	$product = Mage::registry('current_product'); 
-	$id = $this->getRequest()->getParam('id');
-	$current_product=Mage::getModel('catalog/product')->load($id);
-	?>
-        <div class="col-sm-12">
-            <?php echo $current_product->getData('ingridents'); ?> 
+<?php
+$product = Mage::registry('current_product');
+$id = $this->getRequest()->getParam('id');
+$current_product=Mage::getModel('catalog/product')->load($id);
+?>
+<div class="product-bottom-tabs container-fluid">
+    <div class="container">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs text-center">
+                <?php if($current_product->getData('ingridents') != '') : ?>
+                <li class="active"><a data-toggle="tab" href="#ingredients">Ingredients</a></li>
+                <?php endif; ?>
+                <!--<li><a data-toggle="tab" href="#benefits">Benefits</a></li>-->
+                <li class="<?php if($current_product->getData('ingridents') == '') : ?>active<?php endif; ?>"><a data-toggle="tab" href="#reviews">Reviews</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 tab-content">
+            <?php if($current_product->getData('ingridents') != '') : ?>
+            <div id="ingredients" class="tab-pane fade in active ingridents">
+                <?php echo $current_product->getData('ingridents');?>
+            </div>
+            <?php endif; ?>
+            <!--<div id="benefits" class="tab-pane fade">
+                <h2>Benefits</h2>
+            </div>-->
+            <div id="reviews" class="tab-pane fade <?php if($current_product->getData('ingridents') == '') echo 'in active'; ?>">
+                <?php echo $this->getChildHtml('product_additional_data'); ?>
+            </div>
         </div>
     </div>
-	<div class="product-collateral">
-        <?php echo $this->getChildHtml('product_additional_data'); ?>
-    </div>		
 </div>
