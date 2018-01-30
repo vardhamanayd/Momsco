@@ -243,7 +243,13 @@ if($enable_addtocart_sticky){
                 </div>
                 <div class="product-full-desc">
                     <?php echo $_product->getData('loveit'); ?>
+                    <br />
+                    <h2 class="text-uppercase"><strong>Details</strong></h2>
                     <?php echo $_product->getDescription(); ?>
+                    <br />
+                    <?php if($_product->getData('how_to_use')) { ?>
+                    <h2 class="text-uppercase"><strong>How to Use</strong></h2>
+                    <?php echo $_product->getData('how_to_use'); } ?>
                 </div>
                 <?php if (!$this->hasOptions()):?>
                     <div class="clearer"></div>

@@ -982,6 +982,81 @@ border-top-color:transparent}
 	.product-view .product-img-box .etalage-control{visibility:visible}
     
     .product-view .product-img-box .etalage.vertical+.etalage-control a.etalage-prev{left:0}
+    
+    
+    body.cms-home .page { overflow:hidden}
+    .header-container.type13 .menu-icon { float:left !important}
+    .header-container.type13 .header .logo {margin-bottom:0; margin-top:20px;text-align:center;float:left;width:100%}
+    .header-container.type13 .header .logo img { width: auto !important; float:none}
+    .header-container.type13 .header .logo img:nth-of-type(2) { display:inline-block}
+    .homepage_type13 h2 { font-size:35px;margin:40px 0}
+    body.cms-home .footer-middle { padding:40px 0 0}
+    #home_section_1.homepage_type13,
+    #home_section_1.homepage_type13 .home_section_top { padding:0;margin-top:20px;min-height:inherit}
+    #home_section_1.homepage_type13 .circle_trees { width:200px}
+    #home_section_1.homepage_type13 .circle_trees .circle { width:200px;height:200px}
+    #home_section_1.homepage_type13 .circle_trees .trees { top:-50px;left:-55px; width:300px}
+    #home_section_1.homepage_type13 .home_section_1_content { padding-top:40px;font-size:18px;min-height:inherit;padding-left:10px;padding-right:10px}
+    #home_section_1.homepage_type13 .home_section_1_content > img { width:120px}
+    #home_section_1.homepage_type13 .stamp_logos { margin:20px 0 40px}
+    #home_section_1.homepage_type13 .stamp_logos img { max-width:60px; margin:0 10px}
+    #home_section_1.homepage_type13 h2 { font-size:35px;color:#225cae;margin:80px 0 40px}
+    #home_section_1.homepage_type13:before, #home_section_1.homepage_type13:after { content:none}
+
+    #home_section_2.homepage_type13 { padding-top:0;padding-bottom:60px}
+    #home_section_2.homepage_type13 iframe { height:250px}
+
+    #home_section_3.homepage_type13 { padding-bottom:60px}
+    #home_section_3.homepage_type13 .products-grid { flex-wrap:wrap;}
+    #home_section_3.homepage_type13 .products-grid li.item { width:100%; margin:0;left:0}
+    #home_section_3.homepage_type13 .nav-tabs>li>a { font-size:16px}
+
+    #home_section_4.homepage_type13 {padding-top:20px; padding-bottom:60px}
+    #home_section_4.homepage_type13 .heading__area { margin-bottom:0}
+    #home_section_4.homepage_type13 .holo__btn { padding:20px 0; font-size:12px}
+    #home_section_4.homepage_type13 .heading__area p { font-size:18px}
+    #home_section_4.homepage_type13 .heading__area p br { display:none}
+    #home_section_4.homepage_type13 .shop__box { padding:0; margin-top:40px}
+    #home_section_4.homepage_type13 .shop__box h3 { font-size:35px}
+
+    #home_section_5.homepage_type13 .white__box h2 { font-size:55px} 
+    #home_section_5.homepage_type13 .white__box p { font-size:20px}
+    #home_section_5.homepage_type13 .white__box .btn { padding: 20px 25px; font-size:12px}
+    #home_section_5.homepage_type13 .white__box { padding:40px}
+
+    #home_section_6.homepage_type13 { font-size:18px;padding-top:50px;padding-bottom:60px}
+    #home_section_6.homepage_type13 .container > div:nth-child(1) { min-height:inherit;margin-bottom:40px;padding-top:0;}
+    #home_section_6.homepage_type13 .container > div:nth-child(2) { position:relative}
+    #home_section_6.homepage_type13 .btn { padding:20px 25px;font-size:12px}
+
+    #home_section_7.homepage_type13 { padding:10px 15px 20px}
+    #home_section_7.homepage_type13 .heading__area p { font-size:18px}
+    #home_section_7.homepage_type13 .advicer-list .btn { padding:20px 25px;font-size:12px}
+    #home_section_7.homepage_type13 .advicer-list .see-what { font-size:12px}
+    #home_section_7.homepage_type13 .advicer-list .advice-desc { font-size:35px}
+    #home_section_7.homepage_type13 .advicer-list > .row > div { margin-bottom:40px}
+
+    #home_section_8.homepage_type13 { padding-top:50px;padding-bottom:50px;min-height:inherit;}
+    #home_section_8.homepage_type13 .circle_flowers { width:200px;}
+    #home_section_8.homepage_type13 .circle_flowers .circle { width:200px;height:200px}
+    #home_section_8.homepage_type13 .circle_flowers .flowers { width:325px;left:-65px;bottom:-20px}
+    #home_section_8.homepage_type13 .circle_flowers .flowers img { max-width:40%;}
+    #home_section_8.homepage_type13 h2 { font-size:35px;margin-bottom:120px}
+    #home_section_8.homepage_type13 .tryus_section_content { min-height:inherit;padding-top:50px;color:#6e6660;font-size:18px;}
+    #home_section_8.homepage_type13 .tryus_section_content .row a { padding-top:20px;padding-bottom:20px; color:#6e6660; border-color:#6e6660;font-size:12px;background-color:;}
+    #home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after{content:none;}
+    #home_section_8.homepage_type13 .tryus_section_content .row { margin-top:40px}
+    #home_section_8.homepage_type13 .tryus_section_content .row a { margin-bottom:0}
+
+    .footer-middle ul { display:inline-block;padding-left:0}
+    .footer-middle .block { text-align:center}
+    .footer-middle .block:nth-of-type(2) { margin-top:30px !important}
+    .footer-middle .block:nth-of-type(2) #collapse05 li { width:100%}
+    .footer-middle .col-sm-3 { margin-bottom:30px}
+
+    .magestore-bannerslider .flex-control-nav {display:none}
+    
+    
 }
 
 @media (max-width:640px){
@@ -1093,6 +1168,17 @@ border-top-color:transparent}
     
     .category-products .products-grid.flex-grid .item .details-area .actions a.addtocart{padding:0;width:40px}
     .category-products .products-grid.flex-grid .item .details-area .actions a.addtocart span{display:none}
+    
+    
+    body.cms-home .footer-middle { padding:40px 0}
+    .magestore-bannerslider .flex-control-nav {display:none}
+    .header-container.type13 .header .logo {margin-bottom:0; margin-top:20px;text-align:center}
+    body.cms-home .footer-middle { padding:40px 0}
+    #home_section_2.homepage_type13 iframe { height:150px}
+    #home_section_3.homepage_type13 .nav-tabs>li>a { font-size:12px}
+    #home_section_5.homepage_type13 .white__box h2 { font-size:35px}
+    #home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after{content:none;}    
+    
 }
 
 @media (max-width:480px){
