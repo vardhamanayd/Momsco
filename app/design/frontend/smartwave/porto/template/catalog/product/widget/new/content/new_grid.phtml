@@ -44,11 +44,19 @@
 					<?php echo $this->getPriceHtml($_product, true, '-widget-new-grid') ?>
 				</div>
 				<div class="product__bottom actions">
-                    <?php if ($_product->isSaleable()): ?>
-                        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart btn solid__btn solid__blue__btn" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
-                    <?php else: ?>
-                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                    <?php endif; ?>
+                    <div class="row">
+                        <a href="#" class="btn holo__btn text-uppercase col-md-6">
+                            Quick Check Out
+                        </a>    
+                    
+                        <?php if ($_product->isSaleable()): ?>
+                            <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart btn solid__btn solid__blue__btn col-md-6 text-uppercase" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
+                        <?php else: ?>
+                            <p class="availability out-of-stock col-md-6 text-uppercase"><span><?php echo $this->__('Out of stock') ?></span></p>
+                        <?php endif; ?>
+
+                    </div>
+
                     <ul class="add-to-links">
                         <?php if ($this->helper('wishlist')->isAllow()) : ?>
                             <li><a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>

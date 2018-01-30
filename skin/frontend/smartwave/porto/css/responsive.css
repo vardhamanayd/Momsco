@@ -1,9 +1,22 @@
+@media (max-width:1600px){
+    
+    /** Home Page **/
+    
+    #home_section_1.homepage_type13 .container:before { top: -25px;}
+    
+}
+
+
+
 @media (max-width:1439px){
+    
     .header-container.type11 .top-links-icon{display:inline-block}
     .header-container.type11 .links{display:none;position:absolute;right:0;z-index:9;background-color:#fff !important;border-radius:3px;margin:0;padding:5px 0;text-align:right;border:1px solid #ccc}
     .header-container.type11 .links li{display:block;border:0;padding:0}
     .header-container.type11 .links li a{color:#777 !important;white-space:nowrap;padding:0 10px;display:block;transition:all 0.2s;font-weight:400}
     .header-container.type11 .links li:hover a{background-color:#ccc !important;color:#fff !important;text-decoration:none}
+    
+    
 }
 @media (max-width:1279px){
     .header-container.type11 .header{text-align:left;}

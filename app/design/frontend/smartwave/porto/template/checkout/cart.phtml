@@ -8,19 +8,11 @@
 <div class="cart">
     <div class="page-title title-buttons">
         <h1><?php echo $this->__('Shopping Cart') ?></h1>
-        <?php if(!$this->hasError()): ?>
-            <ul class="checkout-types">
-                <?php foreach ($this->getMethods('top_methods') as $method): ?>
-                    <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-                        <li><?php echo $methodHtml; ?></li>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
+        
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <div class="row">
-        <div class="col-sm-12 col-md-8 col-lg-9">
+        <div class="col-xs-12">
             <div class="cart-table-wrap">
                 <?php echo $this->getChildHtml('form_before') ?>
                 <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
@@ -52,9 +44,11 @@
                             <tfoot>
                             <tr>
                                 <td colspan="50" class="a-right">
+                                    <!--
                                     <?php if($this->getContinueShoppingUrl()): ?>
                                         <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue btn solid__btn solid__blue__btn text-uppercase" onclick="setLocation('<?php echo $this->getUrl('') ?>')"><?php echo $this->__('Continue Shopping') ?></button>
                                     <?php endif; ?>
+                                    -->
                                     <button type="submit" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update Shopping Cart'); ?>" class="button btn-update btn solid__btn solid__blue__btn text-uppercase"><?php echo $this->__('Update Shopping Cart'); ?></button>
                                     <button type="submit" name="update_cart_action" value="empty_cart" title="<?php echo $this->__('Clear Shopping Cart'); ?>" class="button btn-empty btn solid__btn text-uppercase" id="empty_cart_button"><?php echo $this->__('Clear Shopping Cart'); ?></button>
                                     <!--[if lt IE 8]>
@@ -121,12 +115,12 @@
                 </form>
             </div>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="col-sm-12 col-md-4 col-lg-3 hide">
             <div class="cart-collaterals">
                 <?php /* Extensions placeholder */ ?>
                 <?php echo $this->getChildHtml('checkout.cart.extra') ?>
-                <?php echo $this->getChildHtml('coupon') ?>
-                <?php if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
+                <?php //echo $this->getChildHtml('coupon') ?>
+                <?php //if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
                 <div class="totals">
                     <h2><?php echo $this->__('Cart Totals') ?></h2>
                     <div>
@@ -145,5 +139,15 @@
             </div>
         </div>
     </div>
+    
+    <?php if(!$this->hasError()): ?>
+        <div class="checkout-types text-center bm60">
+            <?php foreach ($this->getMethods('top_methods') as $method): ?>
+                <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                    <?php echo $methodHtml; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
     <?php echo $this->getChildHtml('crosssell') ?>
 </div>

@@ -40,7 +40,7 @@ var i = 0;
 	<?php $product = Mage::getModel('catalog/product')->load($_product->getId()); ?>
         <li class="item">
             <div class="item-area col-xs-12">
-                <div class="product-image-area col-md-6">
+                <div class="product-image-area col-md-7">
                     <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                     <?php
                         if(Mage::getStoreConfig("porto_settings/category/alternative_image", $code)){
@@ -214,7 +214,7 @@ var i = 0;
                                     <?php echo $product->getData('product_des'); ?>
                                 </div>
 							<?php endif; ?>
-                                <div class="col-md-5 text-right">
+                                <div class="col-md-5 <?php if($product->getData('product_des') != ''): ?>text-right<?php endif; ?>">
                                     <?php if($product->isSaleable()): ?>
                                         <?php  if ( !($product->getTypeInstance(true)->hasOptions($product)/*$_product->getData('has_options')*/ || $product->isGrouped()) ) :  ?>
                                             <a href="<?php echo $_product->getProductUrl() ?>" class="addtocart btn solid__btn solid__blue__btn text-uppercase" title="<?php echo $this->__('Shop Now') ?>"><span>&nbsp;<?php echo $this->__('Shop Now') ?></span></a>
