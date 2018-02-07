@@ -15,8 +15,10 @@ $current_product=Mage::getModel('catalog/product')->load($id);
                 <li class="active"><a data-toggle="tab" href="#ingredients">Ingredients</a></li>
                 <?php endif; ?>
                 <li class="<?php if($current_product->getData('ingridents') == '') : ?>active<?php endif; ?>"><a data-toggle="tab" href="#reviews">Reviews</a></li>
-                <li><a data-toggle="tab" href="#faqs">FAQs</a></li>
-            </ul>
+                <?php if($current_product->getProductFaq() != NULL){ ?>
+				<li><a data-toggle="tab" href="#faqs">FAQs</a></li>
+                <?php } ?>
+			</ul>
         </div>
         <div class="col-xs-12 tab-content">
             <?php if($current_product->getData('ingridents') != '') : ?>
@@ -52,9 +54,11 @@ $current_product=Mage::getModel('catalog/product')->load($id);
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="panel-group" id="accordion2">                            
-                            
-                            <div class="panel panel-default">
+                        <div class="panel-group" id="accordion2">
+							<?php if($current_product->getData('product_faq')): ?>
+								<?php echo $current_product->getData('product_faq'); ?>
+							<?php endif; ?>
+                            <!--<div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title text-uppercase">
                                         <a aria-expanded="true" data-toggle="collapse" data-parent="#accordion2" href="#faq1">1. Is is safe?</a>
@@ -113,7 +117,7 @@ $current_product=Mage::getModel('catalog/product')->load($id);
                                         <p>A: For best results, use this butter with our Natural Stretch Oil. Use the non-greasy Stretch Oil twice a day, once after a bath and once in the afternoon or evening. Use this Body Butter at night before sleeping for 24 hour, deep moisturising.</p>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>-->                            
                             
                         </div>
                     </div>

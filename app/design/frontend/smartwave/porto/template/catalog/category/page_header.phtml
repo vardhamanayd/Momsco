@@ -17,14 +17,15 @@ if ($_description = $_category->getDescription()) {
             <div class="container">
 
                 <div class="col-sm-12" style="padding-left: 0px;">
-                    <div class="col-sm-5 hide" style="padding-left: 0px; padding-right: 30px;">
-                        <?php echo $_imgHtml ?>
-                    </div>
-
                     <div class="col-sm-10 col-sm-offset-1 text-center">
                         <h1 class="text-uppercase"><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
                         <?php echo $_helper->categoryAttribute($_category, $_description, 'description'); ?>
                     </div>
+                    
+                    <div class="col-xs-12 hide show-only-mom">
+                        <?php echo $_imgHtml ?>
+                    </div>
+                    
                 </div>
             </div>
         </div>

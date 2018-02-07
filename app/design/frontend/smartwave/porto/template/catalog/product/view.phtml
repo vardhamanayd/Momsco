@@ -216,12 +216,32 @@ if($enable_addtocart_sticky){
                     <div class="col-sm-8 ideal-for">
                         <?php echo $_product->getData('product_des'); ?>
                     </div>
-                    <?php endif;?>
+                    <?php endif;?>					
                     <div class="col-sm-4" <?php if($enabled_richsnippets) echo $helper_richsnippets->getOfferItemscope(); ?>>
                         <?php echo $this->getChildHtml('product_type_data'); ?>
                         <?php echo $this->getTierPriceHtml(); ?>
                         <?php echo $price_properties; ?>
                     </div>
+					<?php if($_product->getTypeId() == 'simple' && $_product->getData('size')) : ?>
+						<?php 
+							$attrOption = $_helper->productAttribute($_product, $_product->getData('size'), 'size') ;
+							$label = $_product->getResource()->getAttribute('size')->getFrontend()->getLabel($_product);
+							$attr = $_product->getResource()->getAttribute('size');
+						?>
+						<div class="col-sm-12 tm20">
+							<span><?php echo $label; ?>:</span>
+							<?php echo $color_label = $attr->getSource()->getOptionText($attrOption); ?>
+						</div>
+                    <?php endif;?>
+					<?php if($_product->getTypeId() == 'bundle' && $_product->getData('bundle_size')) : ?>
+						<?php 
+							$attrOption = $_helper->productAttribute($_product, $_product->getData('bundle_size'), 'bundle_size') ;
+							$attr = $_product->getResource()->getAttribute('bundle_size');
+						?>
+						<div class="col-sm-12 tm20">							
+							<?php echo $color_label = $attr->getSource()->getOptionText($attrOption); ?>
+						</div>
+                    <?php endif;?>
                 </div>
                 
                 <?php echo $_product->getData('loveit'); ?>
@@ -278,8 +298,9 @@ if($enable_addtocart_sticky){
                     
                     <div class="row">
                         <div class="col-xs-12">                   
-                    
+						
                         <div class="panel-group" id="accordion">
+							<?php if($_product->getData('whats_in')): ?>	
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h4 class="panel-title text-uppercase">
@@ -288,9 +309,11 @@ if($enable_addtocart_sticky){
                                   </h4>
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapse in">
-                                  <div  class="panel-body"><?php echo $_product->getDescription();?></div>
+                                  <div  class="panel-body whats-in"><?php echo $_product->getData('whats_in'); ?></div>
                                 </div>
                               </div>
+							<?php endif; ?>
+							<?php if($_product->getData('whats_out')): ?>
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h4 class="panel-title text-uppercase">
@@ -299,12 +322,11 @@ if($enable_addtocart_sticky){
                                   </h4>
                                 </div>
                                 <div id="collapse2" class="panel-collapse collapse">
-                                  <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                  commodo consequat.</div>
+                                  <div class="panel-body whats-out"><?php echo $_product->getData('whats_out'); ?></div>
                                 </div>
                               </div>
+							<?php endif; ?>
+							<?php if($_product->getData('how_to_use')): ?>
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h4 class="panel-title text-uppercase">
@@ -313,12 +335,12 @@ if($enable_addtocart_sticky){
                                   </h4>
                                 </div>
                                 <div id="collapse3" class="panel-collapse collapse">
-                                  <div class="panel-body">
-
+                                  <div class="panel-body for-best-results">
                                     <?php echo $_product->getData('how_to_use'); ?>
                                     </div>
                                 </div>
                               </div>
+							<?php endif; ?>  
                             </div>
                         </div>
                     </div>
@@ -707,4 +729,9 @@ if(winwid<=500){
     }
     // }
 }
+</script>
+<script>
+jQuery(document).ready(function(){		
+	jQuery("#accordion .panel-default:first a").trigger("click");
+})
 </script>

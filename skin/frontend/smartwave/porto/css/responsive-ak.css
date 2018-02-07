@@ -1,6 +1,5 @@
 .toolbar-bottom {
     text-align: center;
-    margin-top: 20px;
 }
 
 @media(max-width:1572px){
@@ -26,7 +25,7 @@
         font-size: 22px;
     }
     .products-list .details-area .short-desc{
-        font-size: 15px;
+        font-size: 16px;
     }
     .category-products .products-list li.item .details-area .actions a.addtocart{
         font-size: 14px;

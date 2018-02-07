@@ -22,7 +22,7 @@ function portoAlert(msg){
 }
 jQuery(function($){
 
-    $('.tab-pane .products-grid').owlCarousel({
+    $('#home_section_3 .products_slider').owlCarousel({
         margin:10,
         loop:true,
         autoWidth:true,

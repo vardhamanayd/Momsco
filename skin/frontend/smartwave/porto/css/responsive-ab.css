@@ -20,7 +20,6 @@
 	
 	.homepage_type13 h2 { margin:50px 0}
 	
-    #home_section_1.homepage_type13 { margin-top:-150px}
 	#home_section_1.homepage_type13 .circle_trees .circle, 
 	#home_section_1.homepage_type13 .home_section_1_content { margin-top:150px}
 	#home_section_1.homepage_type13 .circle_trees .circle,
@@ -33,7 +32,7 @@
 	}
 	
 	#home_section_1.homepage_type13 .home_section_1_content,
-	#home_section_8.homepage_type13 .tryus_section_content	{ padding:50px 50px 0;min-height:500px}
+	#home_section_8.homepage_type13 .tryus_section_content	{ padding:80px 50px 0;min-height:500px}
 	#home_section_1.homepage_type13 .home_section_1_content img { max-width: 120px }
 	#home_section_1.homepage_type13 h2,
 	#home_section_8.homepage_type13 h2	{ font-size:40px; margin:30px 0}
@@ -50,13 +49,14 @@
     
     #home_section_1.homepage_type13 .stamp_logos { width: 33.33333333%; margin-left: 33.33333333%}
 	
-	#home_section_2.homepage_type13 { padding:80px 15px}
+	#home_section_2.homepage_type13 { padding:0 15px 70px}
+    #home_section_2.homepage_type13 h2.tm80 { margin-top: 40px !important}
 	#home_section_2.homepage_type13 .container iframe { width:800px;height:450px}
 	
-	#home_section_3.homepage_type13 { padding-bottom: 80px}
+	#home_section_3.homepage_type13 { padding-top: 0;padding-bottom: 30px}
 	#home_section_3.homepage_type13 .tab-content { margin-bottom:30px}
 	
-	#home_section_4.homepage_type13 { padding-bottom:80px}
+	#home_section_4.homepage_type13 { padding-bottom:60px}
 	/*#home_section_4.homepage_type13 .shop__box h3 { font-size:35px}*/
 	#home_section_4.homepage_type13 .holo__btn { padding:20px}
 	
@@ -69,7 +69,7 @@
 	#home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after { height:700px }
 	#home_section_8.homepage_type13 .tryus_section_content { padding-top:20px;}
     #home_section_8.homepage_type13 .tryus_section_content .row { margin-top: 40px}
-	#home_section_8.homepage_type13 .tryus_section_content .row a { font-size:12px;padding-top:14px;padding-bottom:14px}
+	#home_section_8.homepage_type13 .tryus_section_content .row a { font-size:12px;padding-top:14px;padding-bottom:14px; margin-bottom: 0}
 	#home_section_8.homepage_type13 .tryus_section_content .col-md-offset-3 { padding-left:50px;padding-right:50px}
 	#home_section_8.homepage_type13 .circle_flowers .lt-flowers, 
 	#home_section_8.homepage_type13 .circle_flowers .rt-flowers { width:500px}
@@ -99,12 +99,11 @@
 	.header-container.type13 .menu-icon { margin-top: 10px !important }    
     
     
-    #home_section_1.homepage_type13 { margin-top: -100px}
     #home_section_1.homepage_type13 .home_section_1_content, 
     #home_section_8.homepage_type13 .tryus_section_content { min-height: 500px}
     
     #home_section_1.homepage_type13 .home_section_1_content, 
-    #home_section_8.homepage_type13 .tryus_section_content { padding: 30px 50px 0}
+    #home_section_8.homepage_type13 .tryus_section_content { padding: 80px 50px 0}
    
     
     #home_section_1.homepage_type13 .home_section_1_content, #home_section_2.homepage_type13 .container p, #home_section_4.homepage_type13 .heading__area p, #home_section_6.homepage_type13, #home_section_7.homepage_type13 .heading__area p, #home_section_8.homepage_type13 .tryus_section_content { font-size: 16px}
@@ -147,21 +146,8 @@
    /* #home_section_7.homepage_type13 .advicer-list > .row > div { flex-wrap: nowrap}*/
     
     #home_section_8.homepage_type13 { padding-top:0}
-    #home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after,
-    #home_section_1.homepage_type13 .container:before, #home_section_1.homepage_type13 .container:after { width:70%; height: 500px}
-    #home_section_8.homepage_type13:before { border-top-left-radius:500px;border-top-right-radius:500px}
-    #home_section_8.homepage_type13:after { border-bottom-left-radius:500px;border-bottom-right-radius:500px}
     #home_section_8.homepage_type13 .try-our-range { width: 40%; margin-left: 30%;}
-    
     #home_section_5.homepage_type13 .white__box { padding: 30px 40px 40px}
-    
-    #home_section_7.homepage_type13 { padding: 0 15px 120px}
-    #home_section_7.homepage_type13 .heading__area { margin-bottom: 30px}
-    #home_section_7.homepage_type13 .advicer-list .see-what { font-size: 14px}    
-    #home_section_7.homepage_type13 .advicer-list .advice-desc { margin: 35px 0}
-    #home_section_7.homepage_type13 .advicer-list .advice-name { margin-top: 30px}
-    #home_section_7.homepage_type13 .advicer-list .see-what + div { padding-bottom: 40px}
-    
     #home_section_8.homepage_type13 .tryus_section_content .row a { margin-bottom: 0}
     
 	
@@ -173,13 +159,7 @@
 }
 
 @media all and (min-device-width:768px) and (max-device-width:1024px) {
-    #home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after, #home_section_1.homepage_type13 .container:before, #home_section_1.homepage_type13 .container:after {
-        width:100%;
-    }
-    
-    #home_section_1.homepage_type13 .container:before {
-        top:-50px
-    }
+   
 }
 
 @media(max-width:1024px){
@@ -187,8 +167,7 @@
     #home_section_1.homepage_type13 .circle_trees .circle, 
     #home_section_8.homepage_type13 .circle_flowers .circle { width:450px;height: 450px }	
     
-    #home_section_1.homepage_type13 { margin-top: -80px }
-	#home_section_1.homepage_type13 .circle_trees .circle, 
+    #home_section_1.homepage_type13 .circle_trees .circle, 
     #home_section_1.homepage_type13 .home_section_1_content { margin-top: 150px; }
     #home_section_1.homepage_type13 .circle_trees .trees img { width: 700px}
     

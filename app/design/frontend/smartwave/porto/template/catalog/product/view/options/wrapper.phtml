@@ -23,8 +23,15 @@
  * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+ 
 ?>
-<div class="product-options hide" id="product-options-wrapper">
+
+
+<?php if(Mage::registry('current_product')->getTypeId()==='bundle'){ ?>
+	<div class="product-options hide" id="product-options-wrapper">
+<?php } else{ ?>
+	<div class="product-options" id="product-options-wrapper">
+<?php } ?>
     <?php echo $this->getChildHtml('', true, true);?>
     <?php if ($this->hasRequiredOptions()):?>
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>

@@ -159,8 +159,28 @@ var i = 0;
                                 }
                             ?>
                         </h2>
-                        <div class="row">
-                            <div class="product__qty col-md-8">Size: 100ml / 3.4 Fl. Oz.</div>
+                        <div class="row">                            
+							<?php if($_product->getTypeId() == 'simple' && $_product->getData('size')) : ?>
+								<?php 
+									$attrOption = $_helper->productAttribute($_product, $_product->getData('size'), 'size') ;
+									$label = $_product->getResource()->getAttribute('size')->getFrontend()->getLabel($_product);
+									$attr = $_product->getResource()->getAttribute('size');
+								?>
+								<div class="product__qty col-md-8">
+									<span><?php echo $label; ?>:</span>
+									<?php echo $color_label = $attr->getSource()->getOptionText($attrOption); ?>
+								</div>
+							<?php endif;?>
+							<?php if($_product->getTypeId() == 'bundle' && $_product->getData('bundle_size')) : ?>
+								<?php 
+									$attrOption = $_helper->productAttribute($_product, $_product->getData('bundle_size'), 'bundle_size') ;
+									$attr = $_product->getResource()->getAttribute('bundle_size');
+								?>
+								<div class="product__qty col-md-8">							
+									<?php echo $attr->getSource()->getOptionText($attrOption); ?>
+								</div>
+							<?php endif;?>
+							
                             <div class="product__price col-md-4 text-right"><?php echo $this->getPriceHtml($_product, true) ?></div>
                         </div>
                     </div>
