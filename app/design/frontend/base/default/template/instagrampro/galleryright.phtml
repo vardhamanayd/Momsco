@@ -1,0 +1,32 @@
+<?php if(Mage::helper('instagrampro')->showImagesOnRight()){ ?>
+<h3 class='leftheading'><?php echo $this->__('Instagram Images') ?></h3>
+
+<?php $obj = new Magecomp_Instagrampro_Block_Homepage(); ?> 
+<?php if (count($obj->getInstagrampropageGalleryImagesRight()) > 0) : ?>
+<div class="instagrampro-view clearer">
+	<?php 
+	$count = 0; 
+	foreach ($obj->getInstagrampropageGalleryImagesRight() as $_image):
+	$count++;
+	$id = $_image->getImageId();
+	$imagetitle = $_image->getImageTitle(); ?>
+        <div class="leftimgdiv">
+        	<?php if( $_image->getMediaType() == "image"){ ?> 
+           	 <img src="<?php echo $_image->getThumbnailUrl(); ?>" alt="<?php echo $imagetitle; ?>" title="<?php echo $imagetitle; ?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);" />
+            <?php } else { ?>
+                 <video width="100%" height='100%'  controls onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);">
+                	<source src="<?php echo $_image->getThumbnailUrl(); ?>" type="video/mp4">
+                	Your browser does not support the video tag.
+                </video>
+            <?php } ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
+<?php  }?>
+<style>
+.instagrampro-view.clearer {
+  float: left;
+  width: 100%;
+}
+</style>

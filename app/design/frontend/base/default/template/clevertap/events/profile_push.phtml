@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
+    //      window.alert('Not logged in');
+    var x='test';
+    <?php } else{ ?>
+    //   window.alert('Logged in');
+    <?php } ?>
+    <?php $customer = Mage::getSingleton('customer/session')->getCustomer();?>
+    clevertap.profile.push({
+        "Site": {
+            "Name": "<?php echo $customer->getName();?>", // User's name
+            "Identity": "<?php echo $customer->getId()?>", // User's identity
+            "Email": "<?php echo $customer->getEmail();?>" // User's email
+        }
+    });
+    //window.alert(JSON.stringify(clevertap.profile));
+</script>

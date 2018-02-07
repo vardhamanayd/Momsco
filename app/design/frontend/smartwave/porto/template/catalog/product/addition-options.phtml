@@ -14,8 +14,8 @@ $current_product=Mage::getModel('catalog/product')->load($id);
                 <?php if($current_product->getData('ingridents') != '') : ?>
                 <li class="active"><a data-toggle="tab" href="#ingredients">Ingredients</a></li>
                 <?php endif; ?>
-                <!--<li><a data-toggle="tab" href="#benefits">Benefits</a></li>-->
                 <li class="<?php if($current_product->getData('ingridents') == '') : ?>active<?php endif; ?>"><a data-toggle="tab" href="#reviews">Reviews</a></li>
+                <li><a data-toggle="tab" href="#faqs">FAQs</a></li>
             </ul>
         </div>
         <div class="col-xs-12 tab-content">
@@ -24,11 +24,101 @@ $current_product=Mage::getModel('catalog/product')->load($id);
                 <?php echo $current_product->getData('ingridents');?>
             </div>
             <?php endif; ?>
-            <!--<div id="benefits" class="tab-pane fade">
-                <h2>Benefits</h2>
-            </div>-->
             <div id="reviews" class="tab-pane fade <?php if($current_product->getData('ingridents') == '') echo 'in active'; ?>">
                 <?php echo $this->getChildHtml('product_additional_data'); ?>
+            </div>
+            <div id="faqs" class="tab-pane fade text-left">
+                
+               <!-- <ul>
+                    <li class="bm30">
+                        <h2 class="postTitle text-uppercase bm0">Q1. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                        
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                        
+                    </li>
+                    <li class="bm30">
+                        <h2 class="postTitle text-uppercase bm0">Q2. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                        
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                    </li>
+                    <li class="bm30">
+                        <h2 class="postTitle text-uppercase bm0">Q3. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                        
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                    </li>
+                </ul>-->
+                
+                
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel-group" id="accordion2">                            
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title text-uppercase">
+                                        <a aria-expanded="true" data-toggle="collapse" data-parent="#accordion2" href="#faq1">1. Is is safe?</a>
+                                    </h4>
+                                </div>
+                                <div id="faq1" class="panel-collapse collapse in">
+                                    <div class="panel-body"><p>A. Yes! With very mild ingredients, our calming wash is safe for using during Pregnancy, Postpartum, Breastfeeding and even for  Baby</p></div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title text-uppercase">
+                                        <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion2" href="#faq2">2. Is it just for moms? </a>
+                                    </h4>
+                                </div>
+                                <div id="faq2" class="panel-collapse collapse">
+                                    <div class="panel-body"><p>A. While it works the best on stretching bellies you could also use it as a safe natural daily lotion.</p></div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title text-uppercase">
+                                        <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion2" href="#faq3">3. Does it work on older marks?</a>
+                                    </h4>
+                                </div>
+                                <div id="faq3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>A. Older marks are generally tough to remove. With ingredients like Seabuckthorn Oil known for wound healing and Rosehip Oil for collagen synthesis, a lot of moms have come back saying they're seeing a visible difference in older marks too.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title text-uppercase">
+                                        <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion2" href="#faq4">4. Can the butter be used a few months after delivery?</a>
+                                    </h4>
+                                </div>
+                                <div id="faq4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>A. Yes, it can be used anytime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title text-uppercase">
+                                        <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion2" href="#faq5">5. How do I use this along with your stretch oil</a>
+                                    </h4>
+                                </div>
+                                <div id="faq5" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>A: For best results, use this butter with our Natural Stretch Oil. Use the non-greasy Stretch Oil twice a day, once after a bath and once in the afternoon or evening. Use this Body Butter at night before sleeping for 24 hour, deep moisturising.</p>
+                                    </div>
+                                </div>
+                            </div>                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

@@ -1,0 +1,30 @@
+<?php 
+	if(Mage::helper('instagrampro')->showImageInProductTab()) 
+		{
+			$obj = new Magecomp_Instagrampro_Block_Catalog_Product_View_Media(); 
+			if ($obj->showInstagramproImages())
+			{
+			?>
+				<div class="insta-producttab">
+				<h3 class="insta-producttab-heading"><?php echo $this->__('Instagram Images Section') ?></h3>
+				<div class="all-instaimage-producttab">
+						<?php
+						foreach($obj->getInstagramproGalleryImages() as $item)
+						{
+						  echo '<div class="producttab-item">';
+						  if( $item->getMediaType() == "image")
+						  {
+							 echo '<img src="'.$item->getThumbnailUrl().'" alt="instagram image">';
+						  }
+						  else
+						  {
+							 echo '<video><source src="'.$item->getThumbnailUrl().'" type="video/mp4"></video>';  
+						  }
+						  echo '</div>';	
+						}
+						?>
+					  </div>
+				</div>
+		
+		<?php	}
+}?>

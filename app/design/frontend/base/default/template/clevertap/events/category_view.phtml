@@ -1,0 +1,7 @@
+<script type="text/javascript">
+ <?php $cat = Mage::registry('current_category');?>
+ clevertap.event.push('Category Viewed',{
+  "Category" : "<?php echo $cat->getName();?>"
+ });
+ //window.alert(JSON.stringify(clevertap.event));
+</script>

@@ -21,6 +21,35 @@ function portoAlert(msg){
 	setTimeout(function(){	jQuery(".alert").fadeOut(500);setTimeout(function(){jQuery(".alert").remove();},500);},3000);
 }
 jQuery(function($){
+
+    $('.tab-pane .products-grid').owlCarousel({
+        margin:10,
+        loop:true,
+        autoWidth:true,
+        items:3
+    })
+    
+    $('.panel-heading a').on('click',function(e){
+        if($(this).parents('.panel').children('.panel-collapse').hasClass('in')){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+    
+    if($("#accordion").length){
+        
+        $("#accordion .panel-body").mCustomScrollbar({
+            theme: "dark",
+            setLeft: 100,
+            setTop: 1000,
+            keyboard: {
+                enable: true,
+                scrollType: "stepless",
+                scrollAmount: "auto"
+            }
+        });
+    }
+    
     $('div.product-view p.no-rating a, div.product-view .rating-links a').click(function(){
         if($('#tab_review_tabbed').hasClass("panel-collapse")){
             if(!$('#tab_review_tabbed').hasClass("in"))

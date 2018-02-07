@@ -2,7 +2,7 @@
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart row" >
-        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-6 col-md-6">
         <?php if(!$_product->isGrouped()): ?>
             <div>
                 <label for="qty"><?php echo $this->__('Qty:') ?></label>
@@ -15,9 +15,10 @@
                 </div>
             </div>
         <?php endif; ?>
+        <a data-toggle="tab" href="#reviews" aria-expanded="true">Write a review</a>
         </div>
-        <div class="col-md-6">
-            <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart solid__blue__btn"  onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <button type="button" title="<?php echo $buttonTitle ?>" class="button solid__blue__btn"  onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
         </div>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>

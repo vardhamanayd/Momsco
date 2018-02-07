@@ -1,0 +1,178 @@
+<?php $_order = $this->getOrder(); ?>
+
+<?php if ($_order): ?>
+    <?php $_items = $_order->getAllItems(); ?>
+    <?php $_itemCount = count($_items); ?>
+     <tr>
+    	<td>
+        	<p>
+				<?php
+					echo '<span style="font-size:14px;font-weight:bold;">'.$this->__('GSTIN NO# ').'</span>';
+					echo $this->__(Mage::getStoreConfig('gstcharge/options/gstno')).' <br><br> ';
+					?>
+           </p>
+        </td>
+    </tr>
+    
+    <tr>
+        <td colspan="2">
+            <table class="items" cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                   <tr class="headings" style="background:rgb(225,225,225)">
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('Product') ?></span></th>
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('HSN CODE') ?></span></th>
+                        
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('Qty') ?></span></th>
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('Price') ?></span></th>
+                        
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('Subtotal') ?></span></th>
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('Discount') ?></span></th>
+                        
+                        <th style="padding: 5px;"><span class="nobr"><?php echo $this->helper('sales')->__('Taxable Amount') ?></span></th>
+                        <th style="padding: 5px;"><span class="nobr">
+                            <table>
+                              <tbody style="background:none;text-align:center">
+                                <tr>
+                                    <td colspan="2"><?php echo $this->helper('sales')->__('CGST') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;"><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                                    <td style="padding: 5px;"><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                        </th>
+                        
+                        <th style="padding: 5px;"><span class="nobr">
+                            <table>
+                              <tbody style="background:none;text-align:center">
+                                <tr>
+                                    <td colspan="2"><?php echo $this->helper('sales')->__('SGST') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;"><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                                    <td style="padding: 5px;"><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                        </th>
+                        
+                        <th style="padding: 5px;"><span class="nobr">
+                            <table>
+                              <tbody style="background:none;text-align:center">
+                                <tr>
+                                    <td colspan="2"><?php echo $this->helper('sales')->__('IGST') ?></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px;"><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                                    <td style="padding: 5px;"><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                        </th>
+                        
+                        <th><span class="nobr"><?php echo $this->helper('sales')->__('Total Amount') ?></span></th>
+                        
+                    </tr>
+                </thead>
+            <?php $i=0; foreach ($_order->getAllItems() as $_item): ?>
+            <?php if($_item->getParentItem()) continue; else $i++; ?>
+                 <tr class="border">
+                
+                	<?php
+						$product=Mage::getModel('catalog/product')->load($_item->getProductId());
+						$hsnCode=$product->getHsncode();
+                    	$taxableAmount=$_item->getrow_total() - $_item->getdiscount_amount();
+						
+						if($_item->getExclPrice())
+						{
+							$subTotal = $_item->getrow_total();
+							$itemTotal = $subTotal + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+						else
+						{
+							$subTotal = $_item->getrow_total() - $_item->getcgst_charge() - $_item->getsgst_charge() - $_item->getigst_charge();
+							$taxableAmount=$subTotal - $_item->getdiscount_amount();
+							$itemTotal = $taxableAmount + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+					?>
+            
+                	<td style="padding: 5px;" class="a-center"><?php echo $_item->getName();?></td>
+                    <td style="padding: 5px;" class="a-center"><?php echo $hsnCode;?></td>
+                    <td style="padding: 5px;" class="a-center"><?php echo round($_item->getqty_ordered(),0);?></td>
+                    <td style="padding: 5px;" class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getprice());?></td>
+                    <td style="padding: 5px;" class="a-center"><?php echo Mage::helper('core')->formatPrice($subTotal);?></td>
+                    <td style="padding: 5px;" class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getdiscount_amount());?></td>
+                    <td style="padding: 5px;" class="a-center"><?php echo Mage::helper('core')->formatPrice($taxableAmount);?></td>
+                    
+                    <td style="padding: 5px;">                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td style="padding: 5px;"><?php echo round($_item->getcgst_percent(),2);?></span></td>
+                                <td style="padding: 5px;"><?php echo Mage::helper('core')->formatPrice($_item->getcgst_charge());  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                                      
+                    <td style="padding: 5px;">                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td style="padding: 5px;"><?php echo round($_item->getsgst_percent(),2);?></span></td>
+                                <td style="padding: 5px;"><?php echo Mage::helper('core')->formatPrice($_item->getsgst_charge(),3);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                    <td style="padding: 5px;">                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td style="padding: 5px;"><?php echo round($_item->getigst_percent(),2);?></span></td>
+                                <td style="padding: 5px;"><?php echo Mage::helper('core')->formatPrice($_item->getigst_charge(), 2);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                  
+                    <td style="padding: 5px;" class="a-center"><?php echo Mage::helper('core')->formatPrice($itemTotal);?></td>
+                </tr>
+            <?php endforeach; ?>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <?php echo $this->getChildHtml('order_totals') ?>
+        </td>
+    </tr>
+   
+    <?php if ($this->helper('giftmessage/message')->isMessagesAvailable('order', $_order, $_order->getStore()) && $_order->getGiftMessageId()): ?>
+        <?php $_giftMessage = $this->helper('giftmessage/message')->getGiftMessage($_order->getGiftMessageId()); ?>
+        <?php if ($_giftMessage): ?>
+            <br />
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border:1px solid #EAEAEA;">
+                <thead>
+                    <tr>
+                        <th align="left" bgcolor="#EAEAEA" style="font-size:13px; padding:3px 9px"><strong><?php echo $this->__('Gift Message for this Order') ?></strong></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td colspan="4" align="left" style="padding:3px 9px">
+                        <strong><?php echo $this->__('From:'); ?></strong> <?php echo $this->escapeHtml($_giftMessage->getSender()) ?>
+                        <br /><strong><?php echo $this->__('To:'); ?></strong> <?php echo $this->escapeHtml($_giftMessage->getRecipient()) ?>
+                        <br /><strong><?php echo $this->__('Message:'); ?></strong><br /> <?php echo $this->escapeHtml($_giftMessage->getMessage()) ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>
+
+<style>
+td,th{padding:5px}
+</style>

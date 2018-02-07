@@ -1,0 +1,19 @@
+<script type="text/javascript">
+	<?php $cart = Mage::getSingleton('checkout/session')->getQuote()->getAllVisibleItems();
+            $item = end($cart);
+            $categories = $item->getProduct()->getCategoryIds();
+            $final_cat="";
+            foreach($categories as $cat){
+                $_cat = Mage::getModel('catalog/category')->load($cat);
+                $final_cat.=(string)($_cat->getName());
+                $final_cat.=",";
+            } ;?>
+	clevertap.event.push('Added to Cart',{
+		'Product Name':"<?php echo $item->getName()?>",
+		'Category':"<?php echo $final_cat?>",
+		'Price':"<?php echo $item->getPrice()?>",
+		'Qty':"<?php echo $item->getQty()?>",
+		'Currency':"<?php echo Mage::app()->getStore()->getCurrentCurrencyCode()?>"
+	});
+	//window.alert(JSON.stringify(clevertap.event));
+</script>

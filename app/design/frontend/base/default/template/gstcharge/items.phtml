@@ -1,0 +1,168 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $_order = $this->getOrder() ?>
+<div class="grid np">
+  <div class="hor-scroll">
+    <table cellspacing="0" class="data order-tables">
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+            <tr class="headings">
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Product') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('HSN CODE') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Qty') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Price') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Subtotal') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Discount') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Taxable Amount') ?></span></th>
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('CGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('SGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('IGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Total Amount') ?></span></th>
+                
+            </tr>
+        </thead>
+        
+        <?php
+        	$quoteId = $_order->getQuoteId();
+			$store = Mage::getSingleton('core/store')->load(1);
+			$quote = Mage::getModel('sales/quote')->setStore($store)->load($quoteId);
+			$cartItems = $quote->getAllVisibleItems();
+		?>
+        
+        <?php foreach ($cartItems as $_item):?>
+            <tbody>
+            	<tr class="border">
+                
+                	<?php
+						$product=Mage::getModel('catalog/product')->load($_item->getProductId());
+						$hsnCode=$product->getHsncode();
+                    	$taxableAmount=$_item->getrow_total()-$_item->getdiscount_amount();
+						$itemTotal= $taxableAmount + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+					?>
+            
+                	<td class="a-center"><?php echo $_item->getName();?></td>
+                    <td class="a-center"><?php echo $hsnCode;?></td>
+                    <td class="a-center"><?php echo $_item->getqty();?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getprice());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getrow_total());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getdiscount_amount());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($taxableAmount);?></td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getcgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getcgst_charge());  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                                      
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getsgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getsgst_charge(),3);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getigst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getigst_charge(), 2);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                  
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($itemTotal);?></td>
+                </tr>
+                
+                
+            
+            </tbody>
+            
+            
+        <?php endforeach; ?>
+    </table>
+  </div>
+</div>
+<br />

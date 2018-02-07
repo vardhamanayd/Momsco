@@ -1,0 +1,9 @@
+<p>
+<?php
+if(Mage::getStoreConfig('gstcharge/options/enabled'))
+{
+	echo '<span style="font-size:14px;font-weight:bold;">'.$this->__('GSTIN NO# ').'</span>';
+	echo $this->__(Mage::getStoreConfig('gstcharge/options/gstno')).' <br><br> ';
+}
+?>
+</p>

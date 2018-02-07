@@ -1,0 +1,144 @@
+
+<?php  $_order = $this->getOrder() ?>
+<p class="order-links"><a href="<?php echo $this->getPrintAllInvoicesUrl($_order) ?>" onclick="this.target='_blank'" class="link-print"><?php echo $this->__('Print All Invoices') ?></a></p>
+<?php foreach ($_order->getInvoiceCollection() as $_invoice): ?>
+    <h2 class="sub-title"><?php echo $this->__('Invoice #') ?><?php echo $_invoice->getIncrementId(); ?> <span class="separator">|</span> <a href="<?php echo $this->getPrintInvoiceUrl($_invoice) ?>" onclick="this.target='_blank'" class="link-print"><?php echo $this->__('Print Invoice') ?></a></h2>
+    <h3 class="table-caption"><?php echo $this->__('Items Invoiced') ?></h3>
+    <table class="data-table linearize-table" id="my-invoice-table-<?php echo $_invoice->getId(); ?>">
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+        <tr class="headings">
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Product') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('HSN CODE') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Qty') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Price') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Subtotal') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Discount') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Taxable Amount') ?></span></th>
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('CGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('SGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('IGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Total Amount') ?></span></th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+        <?php echo $this->getInvoiceTotalsHtml($_invoice)?>
+        </tfoot>
+        <?php $_items = $_invoice->getAllItems(); ?>
+        <?php $_count = count($_items) ?>
+        <?php foreach ($_items as $_item): ?>
+            
+            <tbody>
+            	<tr class="border">
+                
+                	<?php
+						$product=Mage::getModel('catalog/product')->load($_item->getProductId());
+						$hsnCode=$product->getHsncode();
+                    	$taxableAmount=$_item->getrow_total() - $_item->getdiscount_amount();
+						
+						if($_item->getExclPrice())
+						{
+							$subTotal = $_item->getrow_total();
+							$itemTotal = $subTotal + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+						else
+						{
+							$subTotal = $_item->getrow_total() - $_item->getcgst_charge() - $_item->getsgst_charge() - $_item->getigst_charge();
+							$taxableAmount=$subTotal - $_item->getdiscount_amount();
+							$itemTotal = $taxableAmount + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+					?>
+            
+                	<td class="a-center"><?php echo $_item->getName();?></td>
+                    <td class="a-center"><?php echo $hsnCode;?></td>
+                    <td class="a-center"><?php echo round($_item->getqty());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getprice());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($subTotal);?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getdiscount_amount());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($taxableAmount);?></td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getcgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getcgst_charge());  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                                      
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getsgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getsgst_charge(),3);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getigst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getigst_charge(), 2);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                  
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($itemTotal);?></td>
+                </tr>
+            </tbody>
+        <?php endforeach; ?>
+    </table>
+    <script type="text/javascript">decorateTable('my-invoice-table-<?php echo $_invoice->getId(); ?>', {'tbody' : ['odd', 'even'], 'tbody tr' : ['first', 'last']})</script>
+    <?php echo $this->getInvoiceCommentsHtml($_invoice)?>
+<?php endforeach; ?>

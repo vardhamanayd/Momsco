@@ -9,7 +9,7 @@
 ?>
 <?php if($tab_style!="accordion"): ?>
 <div class="product-tabs <?php echo $tab_style; ?>">
-    <ul>
+    <ul class="hide">
         <?php $i = 0; ?>
         <?php foreach ($this->getTabs() as $_index => $_tab): ?>
             <?php if($this->getChildHtml($_tab['alias'])): ?>

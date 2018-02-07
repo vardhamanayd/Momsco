@@ -1,0 +1,167 @@
+<?php $_order = $this->getOrder() ?>
+<h1><?php echo $this->__('Order #%s', $_order->getRealOrderId()) ?></h1>
+<p class="order-date"><?php echo $this->__('Order Date: %s', $this->formatDate($_order->getCreatedAtStoreDate(), 'long')) ?></p>
+<div class="col2-set">
+    <?php if (!$_order->getIsVirtual()): ?>
+    <div class="col-1">
+        <h2><?php echo $this->__('Shipping Address') ?></h2>
+        <address><?php echo $_order->getShippingAddress()->format('html') ?></address>
+    </div>
+    <div class="col-2">
+    <?php else: ?>
+    <div class="col-1">
+    <?php endif; ?>
+        <h2><?php echo $this->__('Billing Address') ?></h2>
+        <address><?php echo $_order->getBillingAddress()->format('html') ?></address>
+    </div>
+<?php if (!$_order->getIsVirtual()): ?>
+</div>
+<div class="col2-set">
+    <div class="col-1">
+        <h2><?php echo $this->__('Shipping Method') ?></h2>
+         <?php echo $this->escapeHtml($_order->getShippingDescription()) ?>
+    </div>
+<?php endif; ?>
+    <div class="col-2">
+        <h2><?php echo $this->__('Payment Method') ?></h2>
+        <?php echo $this->getPaymentInfoHtml() ?>
+    </div>
+</div>
+<h2><?php echo $this->__('Items Ordered') ?></h2>
+<table class="data-table" id="my-orders-table">
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+       <tr class="headings">
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Product') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('HSN CODE') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Qty') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Price') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Subtotal') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Discount') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Taxable Amount') ?></span></th>
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('CGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('SGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('IGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Total Amount') ?></span></th>
+                
+            </tr>
+    </thead>
+    <tfoot>
+        <?php echo $this->getChildHtml('order_totals') ?>
+    </tfoot>
+    <?php $_items = $_order->getItemsCollection(); ?>
+    <?php $_count = $_items->count(); ?>
+    <?php foreach ($_items as $_item): ?>
+    <?php if ($_item->getParentItem()) continue; ?>
+    <tbody>
+        <tr class="border">
+                
+                	<?php
+						$product=Mage::getModel('catalog/product')->load($_item->getProductId());
+						$hsnCode=$product->getHsncode();
+                    	$taxableAmount=$_item->getrow_total() - $_item->getdiscount_amount();
+						
+						if($_item->getExclPrice())
+						{
+							$subTotal = $_item->getrow_total();
+							$itemTotal = $subTotal + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+						else
+						{
+							$subTotal = $_item->getrow_total() - $_item->getcgst_charge() - $_item->getsgst_charge() - $_item->getigst_charge();
+							$taxableAmount=$subTotal - $_item->getdiscount_amount();
+							$itemTotal = $taxableAmount + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+					?>
+            
+                	<td class="a-center"><?php echo $_item->getName();?></td>
+                    <td class="a-center"><?php echo $hsnCode;?></td>
+                    <td class="a-center"><?php echo $_item->getqty_ordered();?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getprice());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($subTotal);?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getdiscount_amount());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($taxableAmount);?></td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getcgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getcgst_charge());  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                                      
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getsgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getsgst_charge(),3);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getigst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getigst_charge(), 2);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                  
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($itemTotal);?></td>
+                </tr>
+    </tbody>
+        <?php endforeach; ?>
+</table>
+<script type="text/javascript">decorateTable('my-orders-table', {'tbody' : ['odd', 'even'], 'tbody tr' : ['first', 'last']})</script>
+<script type="text/javascript">window.print();</script>

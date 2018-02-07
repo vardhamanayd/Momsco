@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="before_body_end">
+			<block type="events/a" name="clevertap.a" after="-">
+				<action method="setTemplate"><template>clevertap/events/a.phtml</template></action>
+			</block>
+		</reference>
+	</default>
+     <catalog_product_view>
+        <reference name="before_body_end">
+            <block type="events/productview" name="clevertap.productview" after="-" >
+                <action method="setTemplate"><template>clevertap/events/product_view.phtml</template></action>
+            </block>
+        </reference>
+    </catalog_product_view>
+	<catalog_category_layered>
+        <reference name="before_body_end">
+            <block type="events/categoryview" name="clevertap.categoryview" after="-" >
+                <action method="setTemplate"><template>clevertap/events/category_view.phtml</template></action>
+            </block>
+        </reference>
+    </catalog_category_layered>
+	<checkout_cart_index>
+		<reference name="before_body_end">
+			<block type="events/cart" name="clevertap.cart" after="-">
+				<action method="setTemplate"><template>clevertap/events/cart_event.phtml</template></action>
+			</block>
+		</reference>
+	</checkout_cart_index>
+	<checkout_onepage_index>
+		<reference name="before_body_end">
+			<block type="events/profilepush" name="clevertap.profilepush" after="-">
+				<action method="setTemplate"><template>clevertap/events/profile_push.phtml</template></action>
+			</block>
+		</reference>
+	</checkout_onepage_index>
+	<customer_account>
+		<reference name="before_body_end">
+			<block type="events/profilepush" name="clevertap.profilepush" after="-">
+				<action method="setTemplate"><template>clevertap/events/profile_push.phtml</template></action>
+			</block>
+		</reference>
+	</customer_account>
+	<checkout_onepage_success>
+		<reference name="before_body_end">
+			<block type="events/thankyou" name="clevertap.thankyou" after="-">
+				<action method="setTemplate"><template>clevertap/events/thank_you.phtml</template></action>
+			</block>
+		</reference>
+	</checkout_onepage_success>
+	<customer_account_logoutsuccess>
+		<reference name="before_body_end">
+			<block type="events/logout" name="clevertap.logout" after="-">
+				<action method="setTemplate"><template>clevertap/events/logout.phtml</template></action>
+			</block>
+		</reference>
+	</customer_account_logoutsuccess>
+	
+</layout>
+

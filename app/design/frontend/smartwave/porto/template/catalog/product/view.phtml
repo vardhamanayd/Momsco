@@ -135,7 +135,7 @@ if($enable_addtocart_sticky){
                     </span>
                 <?php endif; ?>
                 <?php endif; ?>
-                <?php /*<?php echo $this->getReviewsSummaryHtml($_product, false, true)?>*/?>
+                <?php echo $this->getReviewsSummaryHtml($_product, false, true) ?>
                 <div id="top">
                      <a href="#dsq-app1">Reviews</a>
                  </div>
@@ -144,14 +144,14 @@ if($enable_addtocart_sticky){
                 </div>
 
         <div class="row">
-            <div class="product-img-box col-sm-7 <?php echo Mage::getStoreConfig("porto_settings/product_view/product_image_size", $code); ?> <?php echo Mage::getStoreConfig("porto_settings/product_view/thumbnail_image_type", $code); ?>">
+            <div class="product-img-box col-xs-12 col-sm-6 col-md-7 <?php echo Mage::getStoreConfig("porto_settings/product_view/product_image_size", $code); ?> <?php echo Mage::getStoreConfig("porto_settings/product_view/thumbnail_image_type", $code); ?>">
                 <?php echo $this->getChildHtml('media') ?>
 
                 <div class="delivery-info1">
                         <p><img style="padding-top: 25px;" src="<?php echo $this->getSkinUrl("images/img/Asset_1mdpi.png")?>" alt="" /></p>
                 </div>
             </div>
-            <div class="product-shop col-sm-5 <?php echo 12-Mage::getStoreConfig("porto_settings/product_view/product_image_size", $code); ?>">
+            <div class="product-shop col-xs-12 col-sm-6 col-md-5 <?php echo 12-Mage::getStoreConfig("porto_settings/product_view/product_image_size", $code); ?>">
             <?php
                 if (Mage::getStoreConfig("porto_settings/product_view/prev_next",$code)){
             ?>
@@ -210,7 +210,7 @@ if($enable_addtocart_sticky){
                     <div class="col-xs-12 product-name">
                         <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                     </div>
-                </div>
+                </div>                
                 <div class="row ideal-for-price-box">
                     <?php if($_product->getData('product_des')) : ?>
                     <div class="col-sm-8 ideal-for">
@@ -223,6 +223,14 @@ if($enable_addtocart_sticky){
                         <?php echo $price_properties; ?>
                     </div>
                 </div>
+                
+                <?php echo $_product->getData('loveit'); ?>
+                
+                
+                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php endif;?>     
+                
                 <?php if ($_product->getShortDescription()):?>
                     <div class="short-description" style="display:none;">
                         <h2><?php echo $this->__('Quick Overview') ?></h2>
@@ -241,27 +249,14 @@ if($enable_addtocart_sticky){
                     <?php echo $this->getChildHtml('alert_urls') ?>
                     <?php echo $this->getChildHtml('other');?>
                 </div>
-                <div class="product-full-desc">
-                    <?php echo $_product->getData('loveit'); ?>
-                    
-                    <?php if($_product->getDescription()) { ?>
-                    <br />
-                    <h2 class="text-uppercase"><strong>Details</strong></h2>
-                    <?php echo $_product->getDescription(); } ?>
-                    
-                    <?php if($_product->getData('how_to_use')) { ?>
-                    <br />
-                    <h2 class="text-uppercase"><strong>How to Use</strong></h2>
-                    <?php echo $_product->getData('how_to_use'); } ?>
-                    
-                </div>
+                
                 <?php if (!$this->hasOptions()):?>
                     <div class="clearer"></div>
                     <div class="add-to-box">
                         <?php if($_product->isSaleable()): ?>
 
                             <?php echo $this->getChildHtml('addtocart') ?>
-                            <div class="add-acert col-xs-6 pull-right" id="accert">
+                            <div class="add-acert col-xs-6 pull-right hide" id="accert">
                                 <div class="row">
                                     <a class="link-type" href="<?php echo $this->getUrl('gifts-and-bundles.html');?>"><span>See Gifts & Bundles</span></a>
                                 </div>
@@ -278,9 +273,59 @@ if($enable_addtocart_sticky){
                         <?php echo $this->getChildHtml('addto') ?>
                     </div>
                 <?php endif; ?>
-              <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-                <?php endif;?>
+                
+                <div class="product-full-desc">
+                    
+                    <div class="row">
+                        <div class="col-xs-12">                   
+                    
+                        <div class="panel-group" id="accordion">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title text-uppercase">
+                                    <a class="" aria-expanded="true" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    What's In</a>
+                                  </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse in">
+                                  <div  class="panel-body"><?php echo $_product->getDescription();?></div>
+                                </div>
+                              </div>
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title text-uppercase">
+                                    <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    What's Out</a>
+                                  </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse">
+                                  <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                                  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                  commodo consequat.</div>
+                                </div>
+                              </div>
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title text-uppercase">
+                                    <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                    For Best Results</a>
+                                  </h4>
+                                </div>
+                                <div id="collapse3" class="panel-collapse collapse">
+                                  <div class="panel-body">
+
+                                    <?php echo $_product->getData('how_to_use'); ?>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    
+                </div>
+              
                    <?php /* <div class="Buy-now-button col-sm-12">
                         <h2>OR</h2>
                             <div class="gift-bundle col-sm-6">

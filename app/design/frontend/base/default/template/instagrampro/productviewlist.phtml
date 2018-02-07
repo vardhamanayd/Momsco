@@ -1,0 +1,53 @@
+<?php if(Mage::helper('instagrampro')->getImageOnProductsection()) : ?>
+
+<?php $obj = new Magecomp_Instagrampro_Block_Catalog_Product_View_Media(); ?> 
+<?php if ($obj->showInstagramproImages()) : ?>
+<h3><?php echo $this->__('Instagram Images Section') ?></h3>
+<div class="instagrampro-view clearer">
+	<?php 
+	$count = 0;
+	
+	foreach ($obj->getInstagramproGalleryImages() as $_image): 
+	$count++; ?>
+        <div id="mainimgdiv">
+        	<?php 
+			$linkurl = "javascript:void(0);";
+			$imagetitle = $_image->getImageTitle(); 
+			if($_image->getImageLink() != '')
+			{
+				$linkurl = $_image->getImageLink();
+			}
+			?>
+            <?php if( $_image->getMediaType() == "image"){ ?> 
+                    <a href="<?php echo $linkurl; ?>" target="_blank">
+                   		 <img src="<?php echo $_image->getThumbnailUrl(); ?>" width="150" height="150" alt="<?php echo $imagetitle; ?>" title="<?php echo $imagetitle; ?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);" />
+                    </a>
+                    
+                    <p class="hoverp" id="<?php echo "phover".$count?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);">
+                        <a href="<?php echo $linkurl; ?>" target="_blank">
+                        </a>
+                    </p>
+            <?php } else { ?>
+	             <video width="100%" height="100%"  controls>
+                	<source src="<?php echo $_image->getThumbnailUrl(); ?>" type="video/mp4">
+                	Your browser does not support the video tag.
+                </video>
+            <?php } ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<script type="text/javascript">
+function showinstadesc(Id)
+{
+	$("phover"+Id).addClassName('instagramproshow');
+}
+
+function hideinstadesc(Id)
+{
+	$("phover"+Id).removeClassName('instagramproshow');
+}
+</script>
+
+<?php endif;?>

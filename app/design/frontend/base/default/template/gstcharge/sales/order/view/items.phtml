@@ -1,0 +1,156 @@
+<?php  $_order = $this->getOrder() ?>
+<table class="data-table linearize-table-large" id="my-orders-table" summary="<?php echo $this->__('Items Ordered') ?>">
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+        <tr>
+            <th><span class="nobr"><?php echo $this->helper('sales')->__('Product') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('HSN CODE') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Qty') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Price') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Subtotal') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Discount') ?></span></th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Taxable Amount') ?></span></th>
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('CGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('SGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr">
+					<table>
+                      <tbody style="background:none;text-align:center">
+                    	<tr>
+                        	<td colspan="2"><?php echo $this->helper('sales')->__('IGST') ?></span></td>
+                        </tr>
+                        <tr>
+                        	<td><?php echo $this->helper('sales')->__('Rate') ?></span></td>
+                            <td><?php echo $this->helper('sales')->__('Amount') ?></span></td>
+                        </tr>
+                       </tbody>
+                    </table>
+				</th>
+                
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Total Amount') ?></span></th>
+                
+        </tr>
+    </thead>
+    <tfoot>
+        <?php echo $this->getChildHtml('order_totals') ?>
+    </tfoot>
+        <?php $_items = $_order->getItemsCollection(); ?>
+        <?php $_index = 0; ?>
+            <?php $_count = $_items->count(); ?>
+        <?php foreach ($_items as $_item): ?>
+        <?php if ($_item->getParentItem()) continue; ?>
+        <tbody>
+            
+			
+			<tr class="border">
+                
+                	<?php
+						$product=Mage::getModel('catalog/product')->load($_item->getProductId());
+						$hsnCode=$product->getHsncode();
+                    	$taxableAmount=$_item->getrow_total() - $_item->getdiscount_amount();
+						
+						if($_item->getExclPrice())
+						{
+							$subTotal = $_item->getrow_total();
+							$itemTotal = $subTotal + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+						else
+						{
+							$subTotal = $_item->getrow_total() - $_item->getcgst_charge() - $_item->getsgst_charge() - $_item->getigst_charge();
+							$taxableAmount=$subTotal - $_item->getdiscount_amount();
+							$itemTotal = $taxableAmount + $_item->getcgst_charge() + $_item->getsgst_charge() + $_item->getigst_charge();
+						}
+					?>
+            
+                	<td class="a-center"><?php echo $_item->getName();?></td>
+                    <td class="a-center"><?php echo $hsnCode;?></td>
+                    <td class="a-center"><?php echo $_item->getqty_ordered();?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getprice());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($subTotal);?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($_item->getdiscount_amount());?></td>
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($taxableAmount);?></td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getcgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getcgst_charge());  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                                      
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getsgst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getsgst_charge(),3);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                    <td>                  
+                        <table>
+                          <tbody style="background:none;text-align:center">
+                            <tr>
+                                <td><?php echo round($_item->getigst_percent(),2);?></span></td>
+                                <td><?php echo Mage::helper('core')->formatPrice($_item->getigst_charge(), 2);  ?></span></td>
+                            </tr>
+                        </table>
+                    </td>
+                  
+                    <td class="a-center"><?php echo Mage::helper('core')->formatPrice($itemTotal);?></td>
+                </tr>
+            
+			
+			
+			<?php if($this->helper('giftmessage/message')->getIsMessagesAvailable('order_item', $_item) && $_item->getGiftMessageId()): ?>
+            <tr class="border<?php echo ($_index++ > $_count ?' last':'') ?>" id="order-item-gift-message-<?php echo $_item->getId() ?>" style="display:none;">
+                <?php $_giftMessage=$this->helper('giftmessage/message')->getGiftMessageForEntity($_item); ?>
+                <td class="gift-message-row" colspan="7">
+                    <a href="#" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Close')) ?>" onclick="return giftMessageToogle('<?php echo $_item->getId() ?>');" class="btn-close"><?php echo $this->__('Close') ?></a>
+                    <dl class="gift-message">
+                        <dt><strong><?php echo $this->__('From:') ?></strong> <?php echo $this->escapeHtml($_giftMessage->getSender()) ?></dt>
+                        <dt><strong><?php echo $this->__('To:') ?></strong> <?php echo $this->escapeHtml($_giftMessage->getRecipient()) ?></dt>
+                        <dd><?php echo $this->helper('giftmessage/message')->getEscapedGiftMessage($_item) ?></dd>
+                    </dl>
+                </td>
+            </tr>
+            <?php endif ?>
+        </tbody>
+        <?php endforeach; ?>
+</table>
+<script type="text/javascript">decorateTable('my-orders-table', {'tbody' : ['odd', 'even'], 'tbody tr' : ['first', 'last']})</script>

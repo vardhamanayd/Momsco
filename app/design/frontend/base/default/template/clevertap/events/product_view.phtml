@@ -1,0 +1,14 @@
+<script type="text/javascript">
+	if("<?php echo (string)(Mage::getStoreConfig('clevertap_options/general/product_view'))?>"==='0'){
+	}
+	else{
+		clevertap.event.push("Product viewed", {
+			"Product name":"<?php echo $this->getProductName()?>",
+			"Category":"<?php echo $this->getCategoryName()?>",
+			"Price":"<?php echo $this->getProductPrice()?>",
+			"Currency":"<?php echo Mage::app()->getStore()->getCurrentCurrencyCode()?>",
+			"ID":"<?php echo $this->getProduct()->getId()?>"
+		});
+		//window.alert(JSON.stringify(clevertap));
+	}
+</script>

@@ -1,0 +1,240 @@
+<?php if(Mage::helper('instagrampro')->showImagesOnHomePage()){ ?>
+
+<?php $obj = new Magecomp_Instagrampro_Block_Homepage(); ?> 
+<?php if (count($obj->getInstagramproGalleryImages()) > 0) : ?>
+<div class="instagrampro-view clearer">
+	<?php 
+	$count = 0; 
+	$linkurl = "javascript:void(0);";
+
+foreach ($obj->getInstagramproGalleryImages() as $_image):
+		$count++;
+		$id = $_image->getImageId();
+	
+	$imagetitle = $_image->getImageTitle(); ?>
+        <div class="mainimg" id="mainimgdiv">
+        	<?php if( $_image->getMediaType() == "image"){ ?> 
+            <a href="<?php echo $linkurl; ?>" target="_blank">
+            <img src="<?php echo $_image->getThumbnailUrl(); ?>" alt="<?php echo $imagetitle; ?>" title="<?php echo $imagetitle; ?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);" />
+            </a>
+           
+            <div class="hoverp" id="<?php echo "phover".$count?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);" onclick="javascript:showpopupaction('<?php echo $id?>',<?php echo $count?>);">
+            	<div id="innerdiv">
+                	<span id="imagelikes"><i class="fa fa-heart" aria-hidden="true"></i>	<?php echo $_image->getImageLikes()  ?></span>
+                    <span id="imagecomments"><i class="fa fa-comment" aria-hidden="true"></i>	<?php echo $_image->getImageComments()  ?></span>
+                </div>
+            </div>
+            <input type="hidden" name="<?php echo 'curimageid'.$count;?>" id="<?php echo 'curimageid'.$count;?>" value="<?php echo $id?>" />
+             <?php } else { ?>
+              <a href="<?php echo $linkurl; ?>" target="_blank">
+	             <video width="100%" height='100%'  controls onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);">
+                	<source src="<?php echo $_image->getThumbnailUrl(); ?>" type="video/mp4">
+                	Your browser does not support the video tag.
+                </video>
+                </a>
+                 <div class="hoverp" id="<?php echo "phover".$count?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);" onclick="javascript:showpopupaction('<?php echo $id?>',<?php echo $count?>);">
+            	<div id="innerdiv">
+                	<span id="imagelikes"><i class="fa fa-heart" aria-hidden="true"></i><?php echo $_image->getImageLikes() ?></span>
+                    <span id="imagecomments"><i class="fa fa-comment" aria-hidden="true"></i>	<?php echo $_image->getImageComments()  ?></span>
+                </div>
+            </div>
+            <input type="hidden" name="<?php echo 'curimageid'.$count;?>" id="<?php echo 'curimageid'.$count;?>" value="<?php echo $id?>" />
+            <?php } ?>
+        </div>
+    <?php endforeach; ?>
+    <input type="hidden" id="instaimagescount" value="<?php echo $count;?>">
+            <script>
+var screenwidth = screen.width;		
+var i = 1;				
+var products = jQuery("#instaimagescount").val();		
+if(screenwidth < 768){
+products = products-1;				
+var itemwidth = screenwidth*.8;	
+var margin = screenwidth*.1;
+var pixelofonediv = itemwidth+margin;	
+jQuery(".mainimg")  
+    .css({'width': itemwidth+"px", "margin-left":margin+"px"});
+jQuery(".next2").click(function(e) {	
+
+var nextpixeltomove = i * -pixelofonediv; 		
+var maxpixeltomove = products * -pixelofonediv;				
+if(nextpixeltomove < maxpixeltomove)				
+return;		
+jQuery(".instagrampro-view").css({'left':nextpixeltomove+"px"});				
+i++;																					 			
+});											
+jQuery(".privious2").click(function(e) {					
+var priviouspixeltomove = (i * -pixelofonediv) +pixelofonediv;				
+if(priviouspixeltomove > 0)				
+return;					
+jQuery(".instagrampro-view").css({'left':priviouspixeltomove+"px"});
+i--;																					 			
+});	
+}
+else{		
+products = products - 4;		
+jQuery(".next2").click(function(e) {				
+var currentpixel =  jQuery(".instagrampro-view").css("left").replace(/[^-\d\.]/g, '');			
+var nextpixeltomove = currentpixel - 297;		var maxpixeltomove = products * -297;				
+if(nextpixeltomove < maxpixeltomove)				
+return;				
+jQuery(".instagrampro-view").css({'left':nextpixeltomove+"px"});				
+i++;																					 			
+});											
+jQuery(".privious2").click(function(e) {					
+var currentpixel =  parseInt(jQuery(".instagrampro-view").css("left").replace(/[^-\d\.]/g, ''));			
+var priviouspixeltomove = 297 + currentpixel;				
+if(priviouspixeltomove > 0)				
+return;					
+jQuery(".instagrampro-view").css({'left':priviouspixeltomove+"px"});
+i--;																					 			
+});	
+}
+
+</script>
+
+</div>
+
+<?php endif; ?>
+<?php } ?>
+<input type="hidden" name="curimage" id="curimage" value="0" />
+<div id="popupdiv">
+	<div id="backgrounddiv">
+    	<div id="loadingdiv"></div>
+        <div id="whitebgdiv"></div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+var baseurl='<?php echo Mage::getBaseUrl();?>';
+//change user
+jQuery('.userslist').on('change', function (e) {
+    var valueSelected = this.value;
+	if(valueSelected!=0 && valueSelected!='')
+	{
+		window.location.href = baseurl+"instagrampro/gallery/list/?iuser="+valueSelected;
+	}
+});
+
+//change tag 
+jQuery('.taglist').on('change', function (e) {
+    var valueSelected = this.value;
+	if(valueSelected!=0 && valueSelected!='')
+	{
+			window.location.href = baseurl+"instagrampro/gallery/list/?ihash="+valueSelected;
+	}
+});
+
+jQuery(".taglist").val("<?php echo  $arrParams['ihash']; ?>");
+if(jQuery(".taglist").val()==null)
+{
+  jQuery(".taglist").val('0');
+}
+  
+
+jQuery(".userslist").val("<?php echo  $arrParams['iuser']; ?>");
+	  
+if(jQuery(".userslist").val()==null)
+{
+	jQuery(".userslist").val('0');
+}
+
+</script>
+
+
+<script type="text/javascript">
+function showinstadesc(Id)
+{
+	$("phover"+Id).addClassName('instagramproshow');
+}
+
+function hideinstadesc(Id)
+{
+	$("phover"+Id).removeClassName('instagramproshow');
+}
+
+function closepopup()
+{
+	$('backgrounddiv').setStyle({'display': 'none'});
+	$('loadingdiv').setStyle({'display': 'none'});
+	$('whitebgdiv').setStyle({'display': 'none'});
+}
+
+function showpopupaction(ImgId,ImgNum)
+{
+	$('curimage').setValue(ImgNum);
+	
+	new Ajax.Request('<?php echo Mage::getUrl('instagrampro/gallery/popuphtml'); ?>', {
+	  method:'post',
+	  parameters: {Id: ImgId},
+	  onCreate: function()
+	  {
+		$('whitebgdiv').setStyle({'display': 'none'});
+		$('backgrounddiv').setStyle({'display': 'block'});
+		$('loadingdiv').setStyle({'display': 'block'});
+    	
+  	  },
+	  onSuccess: function(transport) 
+	  {
+			var response = transport.responseText || "no response text";
+			$('backgrounddiv').innerHTML = response;
+			  //effact 
+				   jQuery('.alltitleul > li').hover(function (e)
+				   {
+					  var classname = jQuery(this).attr('class');
+					  var xy = classname.split('-');
+					
+					  <?php if(Mage::getStoreConfig('instagrampro/module_options/displayproduct')) : ?>
+					      jQuery('#titletext').html(jQuery(this).find('div').html());
+					  <?php else : ?>
+					      jQuery('#titletext').html(jQuery(this).html());
+					  <?php endif; ?>
+					  jQuery('#titletext').css('top',xy[0]+'px');
+					  jQuery('#titletext').css('left',xy[1]+'px');
+					 });
+					 
+					 jQuery('.alltitleul > li').mouseleave(function (e){
+					  jQuery('#titletext').html('');
+					 });
+			
+			
+	 },
+	  onFailure: function() 
+	  { 
+			alert('Something went wrong...'); 
+	  }
+	});
+	
+		
+}
+
+function prevnextpopup(Acn)
+{
+	var curimg = parseInt($('curimage').getValue());
+	if(Acn == 1)// Prev
+	{
+		curimg = curimg - 1;
+		if(curimg <= 0)
+		{
+			curimg = <?php echo $count ?>;	
+		}
+		
+	} else // Next
+	{
+		curimg = curimg + 1;
+		if(curimg > <?php echo $count ?>)
+		{
+			curimg = 1;	
+		}
+	}	
+	var ImgId = $('curimageid'+curimg).getValue();
+	showpopupaction(ImgId,curimg);
+}
+
+</script>
+
+
+
+

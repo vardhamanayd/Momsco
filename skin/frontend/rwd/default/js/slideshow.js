@@ -39,6 +39,7 @@ $j(document).ready(function () {
             swipe: true,
             prev: '.slideshow-prev',
             next: '.slideshow-next',
-            fx: 'scrollHorz'
-        });
+            fx: 'scrollHorz',
+            timeout: 0
+        }).cycle('pause');
 });

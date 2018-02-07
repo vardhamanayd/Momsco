@@ -34,9 +34,9 @@
     <?php $_columnCount = $this->getColumnCount(); ?>
         <?php $i=0; foreach ($_products->getItems() as $_product): ?>
         <?php if ($i++%$_columnCount==0): ?>
-        <ul class="products-grid">
+        <div class="products-grid">
         <?php endif ?>
-            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+            <div class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
 				<div class="product__top">
 					<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(353) ?>" alt="<?php echo $this->stripTags($_product->getName(), null, true) ?>" /></a>
 					<h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>)"><?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName() , 'name') ?></a></h3>
@@ -44,15 +44,17 @@
 					<?php echo $this->getPriceHtml($_product, true, '-widget-new-grid') ?>
 				</div>
 				<div class="product__bottom actions">
-                    <div class="row">
-                        <a href="#" class="btn holo__btn text-uppercase col-md-6">
-                            Quick Check Out
-                        </a>    
+                    <div class="row">                          
                     
+                        
+                        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Know More')) ?>" class="button btn-cart btn holo__btn col-md-6 text-uppercase" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Know More') ?></button>
+                        
                         <?php if ($_product->isSaleable()): ?>
-                            <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart btn solid__btn solid__blue__btn col-md-6 text-uppercase" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
+                            <a href="#" class="btn solid__btn solid__blue__btn text-uppercase col-md-6">
+                                Add to Cart
+                            </a> 
                         <?php else: ?>
-                            <p class="availability out-of-stock col-md-6 text-uppercase"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <p class="availability btn solid__btn out-of-stock col-md-6 text-uppercase"><?php echo $this->__('Out of stock') ?></p>
                         <?php endif; ?>
 
                     </div>
@@ -66,9 +68,9 @@
                         <?php endif; ?>
                     </ul>
                 </div>
-            </li>
+            </div>
         <?php if ($i%$_columnCount==0 || $i==count($_products)): ?>
-        </ul>
+        </div>
         <?php endif ?>
         <?php endforeach; ?>
     </div>

@@ -1,0 +1,44 @@
+<script type="text/javascript">
+	<?php $id = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+    $order = Mage::getModel('sales/order')->loadByIncrementId($id );?>
+	var dic=[];
+	<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
+	clevertap.profile.push({
+		'Site':{
+			"Name":"<?php echo $order->getCustomerName();?>",
+			"Email":"<?php echo $order->getCustomerEmail();?>"
+		}
+	});
+	<?php }else{ ?>
+	<?php $customer = Mage::getSingleton('customer/session')->getCustomer();?>
+	clevertap.profile.push({
+		"Site": {
+			"Name": "<?php echo $customer->getName();?>", // User's name
+			"Identity": "<?php echo $customer->getId()?>", // User's identity
+			"Email": "<?php echo $customer->getEmail();?>" // User's email
+		}
+	});
+	<?php } ?>
+	<?php foreach($order->getAllVisibleItems() as $item) { $product=Mage::getModel('catalog/product')->load($item->getProductId());?>
+	dic.push({
+		"Category": "<?php echo $this->getCategoryName($product);?>",
+		"Product name": "<?php echo $item->getName()?>",
+		"Quantity": "<?php echo (int)$item->getQtyOrdered()?>"
+	});
+	<?php }?>
+	clevertap.event.push("Charged",{
+		"Amount": "<?php echo $order->getGrandTotal() - $order->getShippingAmount();?>",
+		"Currency": "<?php echo Mage::app()->getStore()->getCurrentCurrencyCode();?>",
+		"Payment mode": "<?php echo $order->getPayment()->getMethodInstance()->getTitle();?>",
+		"Charged ID": "<?php echo $order->getIncrementId() ;?>",
+		"Country":"<?php echo $order->getShippingAddress()->getCountry();?>",
+		<?php if($order->getShippingAddress()->getRegion()){?>
+		"Region":"<?php echo $order->getShippingAddress()->getRegion();?>",
+		<?php } ?>
+		"City":"<?php echo $order->getShippingAddress()->getCity();?>",
+		"Items":dic
+	});
+
+
+//	window.alert(JSON.stringify(clevertap));
+</script>

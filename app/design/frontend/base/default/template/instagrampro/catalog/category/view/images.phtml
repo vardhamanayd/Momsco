@@ -1,0 +1,48 @@
+	<?php
+/**
+ * Magento Instagrampro extension
+ *
+ * @category   Magecomp
+ * @package    Magecomp_Instagrampro
+ * @author     Magecomp
+ */
+?>
+<?php /** @var $this Magecomp_Instagrampro_Block_Catalog_Category_View_Images */ ?>
+<div id="instagrampro_category">
+	<?php  foreach ($this->getInstagramproGalleryImages() as $_image): ?>
+		<?php $linkurl = "javascript:void(0);";
+		      $imagetitle = $_image->getImageTitle(); 
+			  if($_image->getImageLink() != '')
+			  {
+				$linkurl = $_image->getImageLink();
+			  } ?>
+      <?php if( $_image->getMediaType() == "image")
+	  { 
+	  ?>     
+        <a href="<?php echo $linkurl; ?>" target="_blank">
+            <img height="100" src="<?php echo $_image->getThumbnailUrl() ?>" alt="<?php echo $imagetitle; ?>" title="<?php echo $imagetitle; ?>" />
+        </a>
+	
+	<?php 
+	  }else{
+	  ?>
+	   <a>
+	  <video height="100" controls>
+              <source src="<?php echo $_image->getThumbnailUrl() ?>" type="video/mp4">
+              Your browser does not support the video tag.
+      </video>
+	  </a>
+	  <?php 
+	  }
+	  ?>
+	<?php endforeach; ?>
+	<div id="cleardiv"></div>
+</div>
+<style>
+#instagrampro_category > a {
+  float: left;
+  height: 100px;
+  margin: 5px;
+  width: 100px;
+}
+</style>
