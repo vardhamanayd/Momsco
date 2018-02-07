@@ -24,26 +24,31 @@
 	#home_section_1.homepage_type13 .circle_trees .circle, 
 	#home_section_1.homepage_type13 .home_section_1_content { margin-top:150px}
 	#home_section_1.homepage_type13 .circle_trees .circle,
-	#home_section_8.homepage_type13 .circle_flowers .circle	{ width:550px;height:550px}
-	#home_section_1.homepage_type13 .circle_trees .trees img { width:900px}
+	#home_section_8.homepage_type13 .circle_flowers .circle	{ width:450px;height:450px}
+	#home_section_1.homepage_type13 .circle_trees .trees img { width:750px}
 	
 	#home_section_1.homepage_type13 .stamp_logos, #home_section_1.homepage_type13 .bottom-btn {
-		margin-top:30px !important;
-		margin-bottom:50px !important;
+		margin-top:10px !important;
+		margin-bottom:40px !important;
 	}
 	
 	#home_section_1.homepage_type13 .home_section_1_content,
-	#home_section_8.homepage_type13 .tryus_section_content	{ padding:50px 50px 0;min-height:600px}
+	#home_section_8.homepage_type13 .tryus_section_content	{ padding:50px 50px 0;min-height:500px}
 	#home_section_1.homepage_type13 .home_section_1_content img { max-width: 120px }
 	#home_section_1.homepage_type13 h2,
-	#home_section_8.homepage_type13 h2	{ font-size:55px; margin:30px 0}
+	#home_section_8.homepage_type13 h2	{ font-size:40px; margin:30px 0}
+    
+    #home_section_5.homepage_type13 .white__box { padding:50px}
 	
+    #home_section_3.homepage_type13 .nav-tabs>li>a,
 	#home_section_1.homepage_type13 .home_section_1_content,
 	#home_section_2.homepage_type13 .container p,
 	#home_section_4.homepage_type13 .heading__area p,
 	#home_section_6.homepage_type13,
 	#home_section_7.homepage_type13 .heading__area p,
-	#home_section_8.homepage_type13 .tryus_section_content { font-size:20px}
+	#home_section_8.homepage_type13 .tryus_section_content { font-size:18px}
+    
+    #home_section_1.homepage_type13 .stamp_logos { width: 33.33333333%; margin-left: 33.33333333%}
 	
 	#home_section_2.homepage_type13 { padding:80px 15px}
 	#home_section_2.homepage_type13 .container iframe { width:800px;height:450px}
@@ -60,15 +65,18 @@
     
     #home_section_7.homepage_type13 .advicer-list .btn { font-size:14px;padding:18px 30px}
 	
-	#home_section_8.homepage_type13 { min-height:700px;padding-top:40px}
+	#home_section_8.homepage_type13 { min-height:500px;padding-top:60px}
 	#home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after { height:700px }
-	#home_section_8.homepage_type13 .tryus_section_content { padding-top:50px;}
-	#home_section_8.homepage_type13 .tryus_section_content .row a { font-size:16px;padding-top:18px;padding-bottom:18px}
+	#home_section_8.homepage_type13 .tryus_section_content { padding-top:20px;}
+    #home_section_8.homepage_type13 .tryus_section_content .row { margin-top: 40px}
+	#home_section_8.homepage_type13 .tryus_section_content .row a { font-size:12px;padding-top:14px;padding-bottom:14px}
 	#home_section_8.homepage_type13 .tryus_section_content .col-md-offset-3 { padding-left:50px;padding-right:50px}
 	#home_section_8.homepage_type13 .circle_flowers .lt-flowers, 
 	#home_section_8.homepage_type13 .circle_flowers .rt-flowers { width:500px}
 	
-	#home_section_8.homepage_type13 .circle_flowers .flowers { width:1100px}
+	#home_section_8.homepage_type13 .circle_flowers .flowers { width:1000px}
+    #home_section_8.homepage_type13 .try-our-range { width:33.33333333%; margin-left: 33.33333333% }
+    #home_section_8.homepage_type13 .tryus_section_content .row { margin-top: 40px}
     
     .footer-middle .block:nth-of-type(1) #collapse05 ul li a { font-size:22px;width:50px;height:50px;line-height:50px} 
 	
@@ -93,32 +101,42 @@
     
     #home_section_1.homepage_type13 { margin-top: -100px}
     #home_section_1.homepage_type13 .home_section_1_content, 
-    #home_section_8.homepage_type13 .tryus_section_content { min-height: 550px}
-    
-    #home_section_1.homepage_type13 .circle_trees .circle,
-    #home_section_8.homepage_type13 .circle_flowers .circle	{ width:550px;height:550px}
+    #home_section_8.homepage_type13 .tryus_section_content { min-height: 500px}
     
     #home_section_1.homepage_type13 .home_section_1_content, 
     #home_section_8.homepage_type13 .tryus_section_content { padding: 30px 50px 0}
+   
     
-    #home_section_1.homepage_type13 h2 { font-size: 45px}
-    #home_section_1.homepage_type13 .circle_trees .trees img { width: 900px}
+    #home_section_1.homepage_type13 .home_section_1_content, #home_section_2.homepage_type13 .container p, #home_section_4.homepage_type13 .heading__area p, #home_section_6.homepage_type13, #home_section_7.homepage_type13 .heading__area p, #home_section_8.homepage_type13 .tryus_section_content { font-size: 16px}
     
-    #home_section_1.homepage_type13 .home_section_1_content, #home_section_2.homepage_type13 .container p, #home_section_4.homepage_type13 .heading__area p, #home_section_6.homepage_type13, #home_section_7.homepage_type13 .heading__area p, #home_section_8.homepage_type13 .tryus_section_content { font-size: 18px}
+    #home_section_5.homepage_type13 .white__box .btn { margin-top: 20px !important}
     
     #home_section_2.homepage_type13 .container iframe { width:720px;height:405px}
     
     /*#home_section_4.homepage_type13 .container,
     #home_section_7.homepage_type13 .container{ width: 1050px}*/
     
+    #home_section_5.homepage_type13 .white__box h2 { font-size: 55px; margin: 0 0 7px}
+    
+    .homepage_type13 h2,
+    #home_section_1.homepage_type13 h2, #home_section_8.homepage_type13 h2,
+    #home_section_7.homepage_type13 .heading__area h2,
+    #home_section_7.homepage_type13 .advicer-list .advice-desc,
     #home_section_4.homepage_type13 .shop__box h3 { font-size: 35px}
+    
+    #home_section_4.homepage_type13 .shop__box h3 { margin: 10px 0 20px}
     
     #home_section_6.homepage_type13 .container > div:nth-child(2) { min-height: 450px}
     
     #home_section_4.homepage_type13 .holo__btn,
     #home_section_5.homepage_type13 .white__box .btn,
     #home_section_6.homepage_type13 .btn,
-    #home_section_8.homepage_type13 .tryus_section_content .row a { font-size: 14px}
+    #home_section_8.homepage_type13 .tryus_section_content .row a { font-size: 12px;padding: 18px 40px}
+    
+    #home_section_4.homepage_type13 .holo__btn,
+    #home_section_8.homepage_type13 .tryus_section_content .row a { padding: 18px 10px}
+    
+    
 	
     .footer-middle .block:nth-of-type(1) #collapse05 ul li a { font-size:18px;width:40px;height:40px;line-height:40px}
     
@@ -126,13 +144,42 @@
     .footer-bottom a.logo img { max-width: 100%}
     .footer-bottom address { font-size: 12px;padding: 0}
     
-    #home_section_7.homepage_type13 .advicer-list > .row > div { flex-wrap: nowrap}
+   /* #home_section_7.homepage_type13 .advicer-list > .row > div { flex-wrap: nowrap}*/
+    
+    #home_section_8.homepage_type13 { padding-top:0}
+    #home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after,
+    #home_section_1.homepage_type13 .container:before, #home_section_1.homepage_type13 .container:after { width:70%; height: 500px}
+    #home_section_8.homepage_type13:before { border-top-left-radius:500px;border-top-right-radius:500px}
+    #home_section_8.homepage_type13:after { border-bottom-left-radius:500px;border-bottom-right-radius:500px}
+    #home_section_8.homepage_type13 .try-our-range { width: 40%; margin-left: 30%;}
+    
+    #home_section_5.homepage_type13 .white__box { padding: 30px 40px 40px}
+    
+    #home_section_7.homepage_type13 { padding: 0 15px 120px}
+    #home_section_7.homepage_type13 .heading__area { margin-bottom: 30px}
+    #home_section_7.homepage_type13 .advicer-list .see-what { font-size: 14px}    
+    #home_section_7.homepage_type13 .advicer-list .advice-desc { margin: 35px 0}
+    #home_section_7.homepage_type13 .advicer-list .advice-name { margin-top: 30px}
+    #home_section_7.homepage_type13 .advicer-list .see-what + div { padding-bottom: 40px}
+    
+    #home_section_8.homepage_type13 .tryus_section_content .row a { margin-bottom: 0}
+    
 	
 
 }
 
-@media(max-width:1156px){
+@media(max-width:1198px){
+    #home_section_1.homepage_type13 .stamp_logos { width:40%; margin-left:30%;}
+}
+
+@media all and (min-device-width:768px) and (max-device-width:1024px) {
+    #home_section_8.homepage_type13:before, #home_section_8.homepage_type13:after, #home_section_1.homepage_type13 .container:before, #home_section_1.homepage_type13 .container:after {
+        width:100%;
+    }
     
+    #home_section_1.homepage_type13 .container:before {
+        top:-50px
+    }
 }
 
 @media(max-width:1024px){

@@ -159,11 +159,24 @@ body.cms-home .footer-middle { padding:40px 0}
 				<p>Our products are Australian-Certified Toxin-Free<sup>&#8482;</sup> & Made Safe<sup>&#8482;</sup>, Australian Allergy Certified<sup>&#8482;</sup> and Dermatologically Tested.</p>
 			</div>
 		
-			<div class="col-xs-12 stamp_logos tm60 bm40">
-				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-1.png"}}" alt="Made Safe" />
-				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-2.png"}}" alt="Australian Allergy Certified" />
-				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-3.png"}}" alt="Toxic-Free Australian Certified" />
-				<img src="{{media url="wysiwyg/porto/blog/stamp-logo-4.png"}}" alt="Dermatologically Tested OK" />
+			<div class="col-xs-12 col-xs-offset-0 col-md-6 col-md-offset-3 stamp_logos tm60 bm40">
+				
+				<div class="col-xs-3">
+					<img src="{{media url="wysiwyg/porto/blog/stamp-logo-1.png"}}" alt="Made Safe" />
+				</div>
+				
+				<div class="col-xs-3">
+					<img src="{{media url="wysiwyg/porto/blog/stamp-logo-2.png"}}" alt="Australian Allergy Certified" />
+				</div>
+				
+				<div class="col-xs-3">
+					<img src="{{media url="wysiwyg/porto/blog/stamp-logo-3.png"}}" alt="Toxic-Free Australian Certified" />
+				</div>
+				
+				<div class="col-xs-3">
+					<img src="{{media url="wysiwyg/porto/blog/stamp-logo-4.png"}}" alt="Dermatologically Tested OK" />
+				</div>
+				
 			</div>
 			
 			<div class="col-xs-12 bottom-btn tm60 bm20"> <a href="/no-compromise-safety-process" class="btn holo__btn holo__gold__btn text-uppercase">No Compromise Safety Process</a></div>
@@ -225,7 +238,7 @@ body.cms-home .footer-middle { padding:40px 0}
 	<div class="container">
 		<div class="col-xs-12 heading__area">
 			<h2 class="text-uppercase">Gifts</h2>
-			<p>Our <strong>CUSTOMISED GIFT SETS</strong> and Bundles<br/> are great gift ideas for moms and baby.</p>
+			<p>Our <strong>CUSTOMISED GIFT SETS</strong> and Bundles are great gift ideas for moms and baby.</p>
 		</div>
 		<div class="col-xs-8 col-xs-offset-2 col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
 			<div class="col-xs-12 col-sm-6 col-md-6 shop__box gold-box">
@@ -335,7 +348,7 @@ body.cms-home .footer-middle { padding:40px 0}
 				<p>We'd love for you<br/> to try our products and are happy to<br/> offer our trial kits for free.</p>
 				<!--<p>We hope you love<br/> our products, and are happy to<br/> offer you the trial kit for free.</p>-->
 				<div class="row">
-					<div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3">
+					<div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 try-our-range">
 						<a href="/trial-kit" class="btn holo__btn col-xs-12 text-uppercase">Try Our Mom Range</a>
 						<a href="#" class="btn holo__btn col-xs-12 text-uppercase tm20">Try Our Baby Range</a>
 					</div>

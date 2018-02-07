@@ -1011,21 +1011,19 @@ border-top-color:transparent}
     .header-container.type13 .header .logo img:nth-of-type(2) { display:inline-block; margin-top: -30px !important}
     .homepage_type13 h2 { font-size:35px;margin:40px 0}
     body.cms-home .footer-middle { padding:40px 0 0}
-    #home_section_1.homepage_type13 .container:before { top: -55px}
-    #home_section_1.homepage_type13 .container:after { bottom: -55px}
+    #home_section_1.homepage_type13 .container:before,
+    #home_section_1.homepage_type13 .container:after { content: none}
     #home_section_1.homepage_type13,
     #home_section_1.homepage_type13 .home_section_top { padding:0;margin-top:-50px;min-height:inherit}
     #home_section_1.homepage_type13 .circle_trees { width:330px}
     #home_section_1.homepage_type13 .circle_trees .circle { width:200px;height:200px}
     /*#home_section_1.homepage_type13 .circle_trees .trees { top:-50px;left:-55px; width:300px}*/
-    #home_section_1.homepage_type13 .home_section_1_content { padding-top:40px;font-size:18px;min-height:inherit;padding-left:10px;padding-right:10px}
+    #home_section_1.homepage_type13 .home_section_1_content { padding-top:40px;min-height:inherit;padding-left:10px;padding-right:10px}
     
     #home_section_1.homepage_type13 .circle_trees .circle, 
     #home_section_1.homepage_type13 .home_section_1_content  { margin-top: 60px}
-    
+    #home_section_1.homepage_type13 .stamp_logos { width: 100%;margin-left:0}
     #home_section_1.homepage_type13 .home_section_1_content > img { max-width:120px}
-    #home_section_1.homepage_type13 .stamp_logos { margin:20px 0 40px}
-    #home_section_1.homepage_type13 .stamp_logos img { max-width:60px; margin:0 10px}
     #home_section_1.homepage_type13 h2 { font-size:35px;color:#225cae;margin:80px 0 40px}
     #home_section_1.homepage_type13:before, #home_section_1.homepage_type13:after { content:none}
 
@@ -1040,22 +1038,19 @@ border-top-color:transparent}
     #home_section_4.homepage_type13 {padding-top:20px; padding-bottom:60px}
     #home_section_4.homepage_type13 .heading__area { margin-bottom:0}
     #home_section_4.homepage_type13 .holo__btn { padding:20px 0; font-size:12px}
-    #home_section_4.homepage_type13 .heading__area p { font-size:18px}
     #home_section_4.homepage_type13 .heading__area p br { display:none}
     #home_section_4.homepage_type13 .shop__box { padding:0; margin-top:40px; margin-bottom: 0}
     #home_section_4.homepage_type13 .shop__box h3 { font-size:35px}
 
     #home_section_5.homepage_type13 .white__box h2 { font-size:55px} 
-    #home_section_5.homepage_type13 .white__box p { font-size:20px}
     #home_section_5.homepage_type13 .white__box .btn { padding: 20px 25px; font-size:12px}
     #home_section_5.homepage_type13 .white__box { padding:40px}
 
-    #home_section_6.homepage_type13 { font-size:18px;padding-top:50px;padding-bottom:60px}
+    #home_section_6.homepage_type13 { padding-top:50px;padding-bottom:60px}
     #home_section_6.homepage_type13 .container > div:nth-child(2) { position:relative}
     #home_section_6.homepage_type13 .btn { padding:20px 25px;font-size:12px}
 
     #home_section_7.homepage_type13 { padding:10px 15px 20px}
-    #home_section_7.homepage_type13 .heading__area p { font-size:18px}
     #home_section_7.homepage_type13 .advicer-list .btn { padding:20px 25px;font-size:12px}
     #home_section_7.homepage_type13 .advicer-list .see-what { font-size:12px}
     #home_section_7.homepage_type13 .advicer-list .advice-desc { font-size:35px}
@@ -1067,10 +1062,10 @@ border-top-color:transparent}
     #home_section_8.homepage_type13 .circle_flowers .flowers { width:325px;left:-65px;bottom:-20px}
     #home_section_8.homepage_type13 .circle_flowers .flowers img { max-width:40%;}
     #home_section_8.homepage_type13 h2 { font-size:35px;margin-bottom:120px}
-    #home_section_8.homepage_type13 .tryus_section_content { min-height:inherit;padding-top:50px;color:#6e6660;font-size:18px;}
+    #home_section_8.homepage_type13 .tryus_section_content { min-height:inherit;padding-top:50px;color:#6e6660;}
     #home_section_8.homepage_type13 .tryus_section_content .row a { padding-top:20px;padding-bottom:20px; color:#6e6660; border-color:#6e6660;font-size:12px;background-color:;}
-    #home_section_8.homepage_type13:before { top: -35px}
-    #home_section_8.homepage_type13:after { bottom: -35px}
+    #home_section_8.homepage_type13:before,
+    #home_section_8.homepage_type13:after { content: none}
     #home_section_8.homepage_type13 .tryus_section_content .row { margin-top:40px}
     #home_section_8.homepage_type13 .tryus_section_content .row a { margin-bottom:0}
 
@@ -1081,6 +1076,13 @@ border-top-color:transparent}
     .footer-middle .col-sm-3 { margin-bottom:30px}
 
     .magestore-bannerslider .flex-control-nav {display:none}
+    
+    #home_section_7.homepage_type13 .advicer-list > .row, #home_section_7.homepage_type13 .advicer-list > .row > div {
+        -webkit-flex-direction: column;
+        flex-direction:column;
+        -webkit-flex-wrap: wrap;
+        flex-wrap:wrap
+    }
     
 
     /** Product Detail Page **/
@@ -1116,6 +1118,13 @@ border-top-color:transparent}
     #home_section_6.homepage_type13 .container > div:nth-child(2) { min-height: 250px}
     
     .cart-table .qty-holder { width: 100%; text-align: center}
+    
+    #home_section_8.homepage_type13 .try-our-range { width: 100%; margin-left: 0}
+    
+    #home_section_5.homepage_type13 .white__box p,
+    #home_section_1.homepage_type13 .home_section_1_content, #home_section_2.homepage_type13 .container p, #home_section_4.homepage_type13 .heading__area p, #home_section_6.homepage_type13, #home_section_7.homepage_type13 .heading__area p, #home_section_8.homepage_type13 .tryus_section_content {
+        font-size: 14px
+    }
 }
 
 @media (max-width:640px){

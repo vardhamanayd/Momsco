@@ -190,7 +190,7 @@
                 <?php
                 if($footer['footer_logo']){
                 ?>
-                 <div class="col-lg-2">
+                 <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
                      <a href="<?php echo $this->getUrl('') ?>" class="logo"><img src="<?php echo $this->getSkinUrl($footer['footer_logo']); ?>" alt=""/></a>
                  </div>
                 <?php
@@ -209,7 +209,7 @@
                     echo '<div class="custom-block f-right">'.$this->getLayout()->createBlock('cms/block')->setBlockId($footer['footer_bottom_custom_block_id_2'])->toHtml().'</div>';
                 }
                 ?>
-                <div class="col-lg-10">
+                <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
                     <address>
                         <?php echo $footer['copyrights'] ?>
                     </address>
